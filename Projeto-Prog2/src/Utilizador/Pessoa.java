@@ -58,7 +58,15 @@ public abstract class Pessoa {
 		this.dataNascimento = dataNascimento;
 	}
 	public void info(){
-		
+		System.out.println("Nome: "+this.getNome()+"\n Data de nascimento: "+this.getDataNascimento()+""
+				+ "\n Bilhete de identificacao NR: "+this.getNumeroBI()+"Genero :"+this.getGenero()+"\n Endereco: "+this.getEndereco()+"\n contacto: "+this.getContacto()
+				+"\n e-mail: "+this.getEmail()+"\n");
+	}
+	@Override
+	public String toString() {
+		return "nome=" + nome + ", idade=" + idade + ", genero=" + genero + ", contacto=" + contacto
+				+ ", email=" + email + ", endereco=" + endereco + ", NumeroBI=" + NumeroBI + ", dataNascimento="
+				+ dataNascimento + "]";
 	}
 	
 	
