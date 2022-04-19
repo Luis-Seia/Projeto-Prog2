@@ -57,7 +57,9 @@ public abstract class Pessoa {
 	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	
+	public void info(){
+		
+	}
 	
 	
 }
