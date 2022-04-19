@@ -1,5 +1,5 @@
 package Utilizador;
 
-public class Paciente {
-
+public class Paciente extends Pessoa{
+ 
 }
