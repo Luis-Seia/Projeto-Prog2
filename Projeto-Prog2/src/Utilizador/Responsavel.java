@@ -1,5 +1,5 @@
 package Utilizador;
 
-public class Responsavel {
+public class Responsavel extends Pessoa {
 
 }
