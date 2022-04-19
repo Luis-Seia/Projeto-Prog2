@@ -1,6 +1,7 @@
 package Utilizador;
 
 public abstract class Pessoa {
+	// ATRIBUTOS
 	private String nome;
 	private int idade;
 	private char genero;
@@ -9,6 +10,8 @@ public abstract class Pessoa {
 	private String endereco;
 	private String NumeroBI;
 	private String dataNascimento;
+	
+	// GEETRS E SEETRS
 	public String getNome() {
 		return nome;
 	}
@@ -57,17 +60,14 @@ public abstract class Pessoa {
 	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
+	
+	//Metodos
 	public void info(){
 		System.out.println("Nome: "+this.getNome()+"\n Data de nascimento: "+this.getDataNascimento()+""
 				+ "\n Bilhete de identificacao NR: "+this.getNumeroBI()+"Genero :"+this.getGenero()+"\n Endereco: "+this.getEndereco()+"\n contacto: "+this.getContacto()
 				+"\n e-mail: "+this.getEmail()+"\n");
 	}
-	@Override
-	public String toString() {
-		return "nome=" + nome + ", idade=" + idade + ", genero=" + genero + ", contacto=" + contacto
-				+ ", email=" + email + ", endereco=" + endereco + ", NumeroBI=" + NumeroBI + ", dataNascimento="
-				+ dataNascimento + "]";
-	}
+	
 	
 	
 }
