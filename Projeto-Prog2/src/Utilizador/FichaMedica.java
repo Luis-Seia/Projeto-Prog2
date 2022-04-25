@@ -1,5 +1,5 @@
 package Utilizador;
 
-abstract class FichaMedica {
+public abstract class FichaMedica {
 
 }
