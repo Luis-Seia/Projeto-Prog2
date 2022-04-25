@@ -1,8 +1,9 @@
 package Adminstarcao;
 
 public class AdmSystem {
-private void sysout() {
-	// TODO Auto-generated method stub
+
+public void sysoult() {
+	System.out.println();
 
 }
 }
