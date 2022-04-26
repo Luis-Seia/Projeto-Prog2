@@ -1,5 +1,7 @@
 package com.info.utilizadores;
 
+import java.util.Scanner;
+
 public abstract class Pessoa {
 	
 	// ATRIBUTOS
@@ -11,6 +13,8 @@ public abstract class Pessoa {
 	private String endereco;
 	private String NumeroBI;
 	private String dataNascimento;
+	
+	Scanner scan = new Scanner(System.in);
 	
 	// GEETRS E SEETRS
 	public String getNome() {
@@ -65,7 +69,7 @@ public abstract class Pessoa {
 	//Metodos
 	public void info(){
 		System.out.println("Nome: "+this.getNome()+"\n Data de nascimento: "+this.getDataNascimento()+""
-				+ "\n Bilhete de identificacao NR: "+this.getNumeroBI()+"Genero :"+this.getGenero()+"\n Endereco: "+this.getEndereco()+"\n contacto: "+this.getContacto()
+				+ "\n Bilhete de identificacao NR: "+this.getNumeroBI()+"\n Genero :"+this.getGenero()+"\n Endereco: "+this.getEndereco()+"\n contacto: "+this.getContacto()
 				+"\n e-mail: "+this.getEmail()+"\n");
 	}
 	

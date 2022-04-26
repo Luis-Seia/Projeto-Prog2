@@ -21,31 +21,34 @@ public class Responsavel extends Pessoa {
 	
 	// Medoto para cadastrar o usuario responsavel pelo pacientee
 	public void cadastrar() {
-		System.out.println("nome: ");
+		System.out.println("---------Cadastro do responsavel pelo paciente------");
+		System.out.print("nome: ");
 		String nome = scan.nextLine();
 		this.setNome(nome);
-		System.out.println("idade: ");
+		System.out.print("idade: ");
 		int idade = scan.nextInt();
 		this.setIdade(idade);
-		System.out.println("Genero ");
+		System.out.print("Genero ");
 		char genero = scan.next().charAt(0);
 		this.setGenero(genero);
-		System.out.println("Numero BI ");
-		String bi = scan.nextLine();
+		System.out.print("Numero BI: ");
+		String bi = scan.next();
 		this.setNumeroBI(bi);
-		System.out.println("Endereco: ");
-		String endereco = scan.nextLine();
+		System.out.print("Endereco: ");
+		String endereco = scan.next();
 		this.setEndereco(endereco);
-		System.out.println("Contacto: ");
-		String contacto = scan.nextLine();
+		System.out.print("Contacto: ");
+		String contacto = scan.next();
 		this.setContacto(contacto);
-		System.out.println("E-mail");
-		String email = scan.nextLine();
+		System.out.print("E-mail: ");
+		String email = scan.next();
 		this.setEmail(email);
+		System.out.println("----------------Cadastrado com sucesoo-----------------------\n Confira os seus dados");
+		this.info();
 	}
 	
 	// Metodo para acedar as informacoes do paciente associado
-	int operacoes = scan.nextInt();
+	
 	public void operacoes(Paciente paciente) {
 		System.out.println(" 1. Ficha Medica \n 2. Estado clinico \n 3. Notificacoes \n 4. relatorio");
 		int opcao = scan.nextInt();
@@ -83,6 +86,16 @@ public class Responsavel extends Pessoa {
 		}
 		
 		
+			
+		
+		
+		
+	}
+
+	@Override
+	public void info() {
+		System.out.println("Nome: "+this.getNome()
+				+ "\n Bilhete de identificacao NR: "+this.getNumeroBI()+"\n Genero :"+this.getGenero()+"\n Endereco: "+this.getEndereco()+"\n contacto: "+this.getContacto());
 	}
 	
 }
