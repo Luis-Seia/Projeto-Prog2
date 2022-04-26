@@ -1,6 +1,4 @@
-package Utilizador;
-
-
+package com.info.utilizadores;
 
 public class Paciente extends FichaMedica{
  //Atributos

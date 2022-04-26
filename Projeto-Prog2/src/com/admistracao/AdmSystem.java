@@ -1,17 +1,17 @@
-package Adminstarcao;
+package com.admistracao;
 
 import java.util.Scanner;
 
-import Utilizador.Paciente;
-import Utilizador.Responsavel;
+import com.info.utilizadores.Paciente;
+import com.info.utilizadores.Responsavel;
 
-public class AdmSystem extends Paciente {
+public class AdmSystem  {
 	Scanner scan = new Scanner(System.in);
+	
 	public void prencherFicha(Paciente paciente,  Responsavel responsavel) {
-		
-		System.out.println("Seguro: ");
-		boolean seguroMedico = scan.nextBoolean();
-		paciente.setSeguroMedico(seguroMedico);
+		//System.out.println("Seguro: ");
+		//boolean seguroMedico = scan.nextBoolean();
+		//paciente.setSeguroMedico(seguroMedico);
 		System.out.println("Seguradora: ");
 		String seguradora = scan.nextLine();
 		paciente.setSeguradora((seguradora));
