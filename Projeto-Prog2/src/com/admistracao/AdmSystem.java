@@ -9,16 +9,17 @@ public class AdmSystem  {
 	Scanner scan = new Scanner(System.in);
 	
 	public void prencherFicha(Paciente paciente,  Responsavel responsavel) {
-		System.out.println("Admistracao do Sistema");
+		System.out.println("|Admistracao do Sistema|");
 		System.out.println("Prenchimento da ficha medica do paciente: \n ");
-		System.out.println("Seguro? \n 1.SIM \n 2.Nao");
+		System.out.println("Seguro? \n 1.SIM \n 2.Nao \n:");
 		int op = scan.nextInt();
 		switch (op) {
 		case 1: 
-			paciente.setSeguroMedico(true);;
+			paciente.setSeguroMedico(true);
 			System.out.print("Seguradora: ");
 			String seguradora = scan.next();
 			paciente.setSeguradora((seguradora));
+			
 			
 			break;
 		case 2: 
@@ -81,17 +82,21 @@ public class AdmSystem  {
 		System.out.print("Outras doencas: ");
 		String outrasDoencas = scan.next();
 		paciente.setOutrasDoencas((outrasDoencas));
+		System.out.println("-----Informcoes pessoais----");
+		paciente.info();
+		System.out.println("\n");
 		System.out.println("------Familiar responsavel:--------- ");
-		responsavel.getNome();
-		responsavel.getContacto();
-		responsavel.getEmail();
+		System.out.println(responsavel.getNome());
+		System.out.println(responsavel.getContacto());
+		System.out.println(responsavel.getEmail());
+		System.out.println("------------------------------------- ");
 	}
 	
 	public void prencherInfo(Paciente paciente, Responsavel responsavel) {
-		System.out.println("Admistracao do Sistema");
+		System.out.println("|Admistracao do Sistema|");
 		System.out.println("------Registrar  Paciente:--------- ");
 		System.out.print("nome: ");
-		String nome = scan.nextLine();
+		String nome = scan.next();
 		paciente.setNome(nome);
 		System.out.print("idade: ");
 		int idade = scan.nextInt();
@@ -117,14 +122,14 @@ public class AdmSystem  {
 	}
 	
 	public void relatorio(Paciente paciente) {
-		System.out.println("Admistracao do Sistema");
+		System.out.println("|Admistracao do Sistema|");
 		System.out.println("-----------Emitir relatorio---------");
 		String relatar = scan.nextLine();
 		paciente.setInfomation(relatar);
 		
 	}
 	public void atualzarEstado(Paciente paciente) {
-		System.out.println("Admistracao do Sistema");
+		System.out.println("|Admistracao do Sistema|");
 		System.out.println("-----------Atualizar Estado Clinico---------");
 		System.out.println("Recuperado? \n 1.SIM \n 2.Nao");
 		int op = scan.nextInt();
@@ -145,12 +150,11 @@ public class AdmSystem  {
 		
 	}
 	public void notificarResponsavel(Responsavel responsavel) {
-		System.out.println("Admistracao do Sistema");
+		System.out.println("|Admistracao do Sistema|");
 		System.out.println("------Notificar utilizador responsavel-----");
 		System.out.print("Escreva: ");
 		String mensagem = scan.nextLine();
-		while(!"".equals(mensagem)) {
 		 responsavel.setNotificacoes(mensagem);
-		}
+		
 	}
 }

@@ -50,8 +50,10 @@ public class Responsavel extends Pessoa {
 	// Metodo para acedar as informacoes do paciente associado
 	
 	public void operacoes(Paciente paciente) {
-		System.out.println(" 1. Ficha Medica \n 2. Estado clinico \n 3. Notificacoes \n 4. relatorio");
-		int opcao = scan.nextInt();
+		int opcao;
+		do {
+		System.out.println(" 1. Ficha Medica \n 2. Estado clinico \n 3. Notificacoes \n 4. relatorio \n 5. sair");
+		opcao = scan.nextInt();
 		switch (opcao) {
 		case 1:
 			System.out.println("Ficha Medica");
@@ -68,7 +70,7 @@ public class Responsavel extends Pessoa {
 			}else {
 				System.out.println("Seguro Medico: "+paciente.isSeguroMedico());
 			} 
-			System.out.println("Outras doenas: "+paciente.getOutrasDoencas());break;
+			System.out.println("Outras doenas: "+paciente.getOutrasDoencas());
 		
 		case 2:
 			System.out.println("Estado Clinico");
@@ -77,18 +79,15 @@ public class Responsavel extends Pessoa {
 	
 		case 3:
 			System.out.println("Notificacoes");
-			System.out.println(this.getNotificacoes());
+			System.out.println(this.getNotificacoes());break;
 		
 		case 4:
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-			System.out.println("Relatorio \n \"yyyy/MM/dd HH:mm:ss-> "+ dtf.format(LocalDateTime.now())+ "\n"+paciente.getNome()+ "Teve como resultado da avaliacao: \n "+paciente.getInfomation());break;
-			
+			System.out.println("Relatorio \n "+ dtf.format(LocalDateTime.now())+ "\n"+paciente.getNome()+ "\nTeve como resultado da avaliacao: \n "+paciente.getInfomation());break;
+		default:
+			System.out.println("Opcao invalida \n");break;
 		}
-		
-		
-			
-		
-		
+		}while (opcao != 5);
 		
 	}
 
