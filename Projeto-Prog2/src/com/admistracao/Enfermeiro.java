@@ -10,7 +10,7 @@ import com.info.utilizadores.Responsavel;
 
 
 
-public class AdmSystem  {
+public class Enfermeiro  {
 	Scanner scan = new Scanner(System.in);
 	
 	public void prencherFicha(Paciente paciente,  Responsavel responsavel) {
