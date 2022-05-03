@@ -27,40 +27,9 @@ public class Enfermeiro  {
 		this.turno = turno;
 	}
 
-	/*
-	public String getNome() {
-		return nome;
-	}
+	
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getCredencial() {
-		return credencial;
-	}
-
-	public void setCredencial(String credencial) {
-		this.credencial = credencial;
-	}
-
-	public String getLocalizacao() {
-		return localizacao;
-	}
-
-	public void setLocalizacao(String localizacao) {
-		this.localizacao = localizacao;
-	}
-
-	public String getTurno() {
-		return turno;
-	}
-
-	public void setTurno(String turno) {
-		this.turno = turno;
-	}*/
-
-	public void prencherFicha(Paciente paciente,  Responsavel responsavel) {
+	public void prencherFicha(Paciente paciente) {
 		System.out.println("|Admistracao do Sistema|");
 		System.out.println("Prenchimento da ficha medica do paciente: \n ");
 		System.out.println("Seguro? \n 1.SIM \n 2.Nao \n:");
@@ -134,14 +103,7 @@ public class Enfermeiro  {
 		System.out.print("Outras doencas: ");
 		String outrasDoencas = scan.next();
 		paciente.setOutrasDoencas((outrasDoencas));
-		System.out.println("-----Informcoes pessoais----");
-		paciente.info();
-		System.out.println("\n");
-		System.out.println("------Familiar responsavel:--------- ");
-		System.out.println(responsavel.getNome());
-		System.out.println(responsavel.getContacto());
-		System.out.println(responsavel.getEmail());
-		System.out.println("------------------------------------- ");
+		
 	}
 	
 	public void prencherInfo(Paciente paciente, Responsavel responsavel) {
@@ -213,4 +175,37 @@ public class Enfermeiro  {
 		}
 		
 	}
+	
+	/*
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCredencial() {
+		return credencial;
+	}
+
+	public void setCredencial(String credencial) {
+		this.credencial = credencial;
+	}
+
+	public String getLocalizacao() {
+		return localizacao;
+	}
+
+	public void setLocalizacao(String localizacao) {
+		this.localizacao = localizacao;
+	}
+
+	public String getTurno() {
+		return turno;
+	}
+
+	public void setTurno(String turno) {
+		this.turno = turno;
+	}*/
 }

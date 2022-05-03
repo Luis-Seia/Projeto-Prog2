@@ -9,6 +9,11 @@ public class Paciente extends FichaMedica{
 	private String infomation;
 	private Responsavel responsavel;
 	
+	
+	
+	public Paciente() {
+		this.infectado = true;
+	}
 
 	// getters e setters
 	public String getFaseclinica() {
