@@ -7,7 +7,7 @@ public class Paciente extends FichaMedica{
 	private String referencia;
 	private String localizacacao;
 	private String infomation;
-	Responsavel responsavel;
+	private Responsavel responsavel;
 	
 
 	// getters e setters

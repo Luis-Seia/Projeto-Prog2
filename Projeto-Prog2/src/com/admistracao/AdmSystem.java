@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 import com.info.utilizadores.Paciente;
 import com.info.utilizadores.Responsavel;
+// import java.io.BufferedReader;
+// import java.io.BufferedWriter;
+// import java.io.IOException;
+
+
 
 public class AdmSystem  {
 	Scanner scan = new Scanner(System.in);
@@ -149,12 +154,16 @@ public class AdmSystem  {
 		} 
 		
 	}
+	
 	public void notificarResponsavel(Responsavel responsavel) {
 		System.out.println("|Admistracao do Sistema|");
 		System.out.println("------Notificar utilizador responsavel-----");
 		System.out.print("Escreva: ");
-		String mensagem = scan.nextLine();
+		String mensagem = null; 
+		while(!mensagem.equals(" ")) {
+		mensagem=scan.nextLine();
 		 responsavel.setNotificacoes(mensagem);
+		}
 		
 	}
 }
