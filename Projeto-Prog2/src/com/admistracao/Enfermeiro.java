@@ -12,7 +12,54 @@ import com.info.utilizadores.Responsavel;
 
 public class Enfermeiro  {
 	Scanner scan = new Scanner(System.in);
+	private String nome;
+	private String credencial;
+	private String localizacao;
+	private String turno;
+	 
 	
+	
+	public Enfermeiro(String nome, String credencial, String localizacao, String turno) {
+		super();
+		this.nome = nome;
+		this.credencial = credencial;
+		this.localizacao = localizacao;
+		this.turno = turno;
+	}
+
+	/*
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCredencial() {
+		return credencial;
+	}
+
+	public void setCredencial(String credencial) {
+		this.credencial = credencial;
+	}
+
+	public String getLocalizacao() {
+		return localizacao;
+	}
+
+	public void setLocalizacao(String localizacao) {
+		this.localizacao = localizacao;
+	}
+
+	public String getTurno() {
+		return turno;
+	}
+
+	public void setTurno(String turno) {
+		this.turno = turno;
+	}*/
+
 	public void prencherFicha(Paciente paciente,  Responsavel responsavel) {
 		System.out.println("|Admistracao do Sistema|");
 		System.out.println("Prenchimento da ficha medica do paciente: \n ");
