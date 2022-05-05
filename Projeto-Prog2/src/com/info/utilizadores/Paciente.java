@@ -4,7 +4,7 @@ import com.classes.abstratas.FichaMedica;
 
 public class Paciente extends FichaMedica{
 	/*
-	 * A classe Paciente herdara atributos e mmetodos da classe pessoa da classe FichaMedica
+	 * A classe Paciente herdara atributos e mmetodos da classe pessoa e da classe FichaMedica
 	 */
 	
  //Atributos

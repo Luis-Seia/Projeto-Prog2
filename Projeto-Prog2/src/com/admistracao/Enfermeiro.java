@@ -26,8 +26,7 @@ public class Enfermeiro  {
 		this.turno = turno;
 	}
 
-	
-
+// Metodo para prencher ficha medica do paciente
 	public void prencherFicha(Paciente paciente) {
 		System.out.println("|Admistracao do Sistema|");
 		System.out.println("Prenchimento da ficha medica do paciente: \n ");

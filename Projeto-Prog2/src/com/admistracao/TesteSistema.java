@@ -7,9 +7,9 @@ public class TesteSistema {
 public static void main (String[] args) {
 	Enfermeiro a = new Enfermeiro("Luis","UYFGUYF","Mavalane","N");
 	
-	Paciente p1 = new Paciente();
-	//Responsavel r1 = new Responsavel();
-	//a.prencherFicha(p1, r1);
+	 Paciente p1 = new Paciente();
+	 Responsavel r1 = new Responsavel();
+	a.prencherFicha(p1);
 	//r1.cadastrar();
 	
 	//System.out.println("sim");
