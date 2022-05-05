@@ -4,6 +4,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.classes.abstratas.Pessoa;
+
 // class do responsavell pelo paciente
 public class Responsavel extends Pessoa {
 	

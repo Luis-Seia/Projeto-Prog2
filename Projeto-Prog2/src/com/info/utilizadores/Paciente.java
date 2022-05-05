@@ -1,5 +1,7 @@
 package com.info.utilizadores;
 
+import com.classes.abstratas.FichaMedica;
+
 public class Paciente extends FichaMedica{
  //Atributos
 	private boolean infectado;
