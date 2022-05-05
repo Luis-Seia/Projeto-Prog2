@@ -20,7 +20,6 @@ public class Enfermeiro  {
 	
 	
 	public Enfermeiro(String nome, String credencial, String localizacao, String turno) {
-		super();
 		this.nome = nome;
 		this.credencial = credencial;
 		this.localizacao = localizacao;

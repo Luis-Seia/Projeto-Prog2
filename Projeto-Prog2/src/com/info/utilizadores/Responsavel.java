@@ -57,7 +57,9 @@ public class Responsavel extends Pessoa {
 		switch (opcao) {
 		case 1:
 			System.out.println("Ficha Medica");
+			System.out.println("-----Informcoes pessoais----");
 			paciente.info();
+			System.out.println("--------------------------------");
 			System.out.println("Seguro: "+paciente.getCredencial()+"\n Hipertensao: "+paciente.isHipertensao()
 			+"\n Diabete: "+paciente.isDiabete()+"\nPeso: "+paciente.getPeso()+"\n");
 			if (paciente.isDoencaCronica()==true) {
