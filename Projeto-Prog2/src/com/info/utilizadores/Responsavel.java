@@ -6,7 +6,15 @@ import java.util.Scanner;
 
 import com.classes.abstratas.Pessoa;
 
-// class do responsavell pelo paciente
+/*
+ * A classe Responsavel corresponde ao utilizador responsavel pelo paciente que ira se cadastrar
+  no sistema e efetuar operacoes como:
+  * Ver ficha medica do paciente;
+  * Ver estado atual do paciente
+  * ver relatorio
+  * ver Notificacoes do hospital
+  * 
+ */
 public class Responsavel extends Pessoa {
 	
 	
@@ -33,24 +41,24 @@ public class Responsavel extends Pessoa {
 		System.out.print("Genero ");
 		char genero = scan.next().charAt(0);
 		this.setGenero(genero);
+		scan.nextLine();
 		System.out.print("Numero BI: ");
-		String bi = scan.next();
+		String bi = scan.nextLine();
 		this.setNumeroBI(bi);
 		System.out.print("Endereco: ");
-		String endereco = scan.next();
+		String endereco = scan.nextLine();
 		this.setEndereco(endereco);
 		System.out.print("Contacto: ");
-		String contacto = scan.next();
+		String contacto = scan.nextLine();
 		this.setContacto(contacto);
 		System.out.print("E-mail: ");
-		String email = scan.next();
+		String email = scan.nextLine();
 		this.setEmail(email);
 		System.out.println("----------------Cadastrado com sucesoo-----------------------\n Confira os seus dados");
 		this.info();
 	}
 	
 	// Metodo para acedar as informacoes do paciente associado
-	
 	public void operacoes(Paciente paciente) {
 		int opcao;
 		do {

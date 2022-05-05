@@ -3,6 +3,10 @@ package com.info.utilizadores;
 import com.classes.abstratas.FichaMedica;
 
 public class Paciente extends FichaMedica{
+	/*
+	 * A classe Paciente herdara atributos e mmetodos da classe pessoa da classe FichaMedica
+	 */
+	
  //Atributos
 	private boolean infectado;
 	private String faseclinica;
