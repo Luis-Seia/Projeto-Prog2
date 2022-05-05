@@ -104,6 +104,8 @@ public class Enfermeiro  {
 		
 	}
 	
+	
+	// Metodo para Prencher inforacoes do paciente e associar ao responsavel
 	public void prencherInfo(Paciente paciente, Responsavel responsavel) {
 		System.out.println("|Admistracao do Sistema|");
 		System.out.println("------Registrar  Paciente:--------- ");
@@ -140,6 +142,8 @@ public class Enfermeiro  {
 		paciente.setInfomation(relatar);
 		
 	}
+	
+	// Metodo para atualaizar estadso clinico do paciente
 	public void atualzarEstado(Paciente paciente) {
 		System.out.println("|Admistracao do Sistema|");
 		System.out.println("-----------Atualizar Estado Clinico---------");
@@ -162,6 +166,7 @@ public class Enfermeiro  {
 		
 	}
 	
+	//  Meetodo para notificar o utilizador do sistema, neste caso oresponsavel pelo paciente
 	public void notificarResponsavel(Responsavel responsavel) {
 		System.out.println("|Admistracao do Sistema|");
 		System.out.println("------Notificar utilizador responsavel-----");
