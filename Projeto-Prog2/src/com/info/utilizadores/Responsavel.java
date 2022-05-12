@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import com.abstracts.classes.Pessoa;
+import com.info.utilizadores.abstracts.classes.Pessoa;
 
 
 public class Responsavel extends Pessoa {
