@@ -17,7 +17,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import com.classes.abstratas.Pessoa;
+
+import com.abstracts.classes.Pessoa;
 
 
 public class Responsavel extends Pessoa {

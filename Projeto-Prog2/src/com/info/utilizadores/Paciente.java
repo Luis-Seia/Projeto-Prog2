@@ -1,6 +1,6 @@
 package com.info.utilizadores;
 
-import com.classes.abstratas.FichaMedica;
+import com.abstracts.classes.FichaMedica;
 
 public class Paciente extends FichaMedica{
 	/*

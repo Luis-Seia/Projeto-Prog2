@@ -1,4 +1,4 @@
-package com.classes.abstratas;
+package com.abstracts.classes;
 
 import java.util.Scanner;
 
