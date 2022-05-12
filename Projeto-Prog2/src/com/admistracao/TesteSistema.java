@@ -9,7 +9,7 @@ public static void main (String[] args) {
 	
 	 Paciente p1 = new Paciente();
 	 Responsavel r1 = new Responsavel();
-	a.prencherFicha(p1);
+	//a.prencherFicha(p1);
 	//r1.cadastrar();
 	
 	//System.out.println("sim");
@@ -18,7 +18,7 @@ public static void main (String[] args) {
 	//a.atualzarEstado(p1);
 	//a.relatorio(p1);
 	//a.notificarResponsavel(r1);
-	//r1.operacoes(p1);
+	r1.operacoes(p1);
 	
 }
 }
