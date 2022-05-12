@@ -1,16 +1,16 @@
 package com.admistracao;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
-
 import com.info.utilizadores.Paciente;
 import com.info.utilizadores.Responsavel;
 // import java.io.BufferedReader;
 // import java.io.BufferedWriter;
-// import java.io.IOException;
-
-
-
+// import java.io.IOException
+		
 public class Enfermeiro  {
+	private static SimpleDateFormat date3 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	Scanner scan = new Scanner(System.in);
 	private String nome;
 	private String credencial;
@@ -121,7 +121,7 @@ public class Enfermeiro  {
 		System.out.print("Numero BI ");
 		String bi = scan.next();
 		paciente.setNumeroBI(bi);
-		System.out.print("Endereco: ");
+  		System.out.print("Endereco: ");
 		String endereco = scan.next();
 		paciente.setEndereco(endereco);
 		System.out.print("Contacto: ");
@@ -145,8 +145,10 @@ public class Enfermeiro  {
 	
 	// Metodo para atualaizar estadso clinico do paciente
 	public void atualzarEstado(Paciente paciente) {
+		Date data3 = new Date();
 		System.out.println("|Admistracao do Sistema|");
 		System.out.println("-----------Atualizar Estado Clinico---------");
+		System.out.println(date3.format(data3));
 		System.out.println("Recuperado? \n 1.SIM \n 2.Nao");
 		int op = scan.nextInt();
 		switch (op) {
@@ -168,47 +170,17 @@ public class Enfermeiro  {
 	
 	//  Meetodo para notificar o utilizador do sistema, neste caso oresponsavel pelo paciente
 	public void notificarResponsavel(Responsavel responsavel) {
+		int resp =1;
 		System.out.println("|Admistracao do Sistema|");
 		System.out.println("------Notificar utilizador responsavel-----");
 		System.out.print("Escreva: ");
-		String mensagem = null; 
-		while(!mensagem.equals(" ")) {
-		mensagem=scan.nextLine();
-		 responsavel.setNotificacoes(mensagem);
+		while(resp == 1) {
+		String mensagem = scan.nextLine();
+		responsavel.setNotificacoes(mensagem);
 		}
-		
+		System.out.println("Deseja enviar um novo E-mail? \n 1.Sim \n 2.Nao");
+		 resp = scan.nextInt();
 	}
-	
-	/*
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getCredencial() {
-		return credencial;
-	}
-
-	public void setCredencial(String credencial) {
-		this.credencial = credencial;
-	}
-
-	public String getLocalizacao() {
-		return localizacao;
-	}
-
-	public void setLocalizacao(String localizacao) {
-		this.localizacao = localizacao;
-	}
-
-	public String getTurno() {
-		return turno;
-	}
-
-	public void setTurno(String turno) {
-		this.turno = turno;
-	}*/
 }
+
+

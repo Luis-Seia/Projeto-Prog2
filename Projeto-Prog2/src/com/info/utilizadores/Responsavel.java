@@ -1,11 +1,4 @@
 package com.info.utilizadores;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Scanner;
-
-import com.classes.abstratas.Pessoa;
-
 /*
  * A classe Responsavel corresponde ao utilizador responsavel pelo paciente que ira se cadastrar
   no sistema e efetuar operacoes como:
@@ -15,6 +8,18 @@ import com.classes.abstratas.Pessoa;
   * ver Notificacoes do hospital
   * 
  */
+
+
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import com.classes.abstratas.Pessoa;
+
+
 public class Responsavel extends Pessoa {
 	
 	
@@ -30,7 +35,9 @@ public class Responsavel extends Pessoa {
 	}
 	
 	// Medoto para cadastrar o usuario responsavel pelo pacientee
+	
 	public void cadastrar() {
+		try {
 		System.out.println("---------Cadastro do responsavel pelo paciente------");
 		System.out.print("nome: ");
 		String nome = scan.nextLine();
@@ -56,10 +63,14 @@ public class Responsavel extends Pessoa {
 		this.setEmail(email);
 		System.out.println("----------------Cadastrado com sucesoo-----------------------\n Confira os seus dados");
 		this.info();
-	}
-	
-	// Metodo para acedar as informacoes do paciente associado
+		}
+		catch(InputMismatchException e){
+			System.out.println("Erro: " +e.getMessage());
+			}
+		}
+	// Metodo para acedar as informacoes do paciente associad
 	public void operacoes(Paciente paciente) {
+		try {
 		int opcao;
 		do {
 		System.out.println(" 1. Ficha Medica \n 2. Estado clinico \n 3. Notificacoes \n 4. relatorio \n 5. sair");
@@ -100,7 +111,9 @@ public class Responsavel extends Pessoa {
 			System.out.println("Opcao invalida \n");break;
 		}
 		}while (opcao != 5);
-		
+		}catch(InputMismatchException e){
+			System.out.println("Erro: " +e.getMessage());
+		}
 	}
 
 	@Override
