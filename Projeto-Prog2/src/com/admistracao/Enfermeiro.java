@@ -2,12 +2,16 @@ package com.admistracao;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+import com.enums.state.FaseClinica;
 import com.info.utilizadores.Paciente;
 import com.info.utilizadores.Responsavel;
 // import java.io.BufferedReader;
 // import java.io.BufferedWriter;
 // import java.io.IOException
+
+
 		
 public class Enfermeiro  {
 	private static SimpleDateFormat date3 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -28,6 +32,7 @@ public class Enfermeiro  {
 
 // Metodo para prencher ficha medica do paciente
 	public void prencherFicha(Paciente paciente) {
+		try {
 		System.out.println("|Admistracao do Sistema|");
 		System.out.println("Prenchimento da ficha medica do paciente: \n ");
 		System.out.println("Seguro? \n 1.SIM \n 2.Nao \n:");
@@ -101,85 +106,133 @@ public class Enfermeiro  {
 		System.out.print("Outras doencas: ");
 		String outrasDoencas = scan.next();
 		paciente.setOutrasDoencas((outrasDoencas));
+		}
+		catch(InputMismatchException e){
+			System.out.println("Erro: Insira os dados corretamente");
+		}
+		catch(IllegalArgumentException e) {
+			System.out.println("Paciente invalido");
+		}
+		catch (RuntimeException e) {
+			System.out.println("Unexpected error");
+		}
 		
+			
 	}
 	
 	
 	// Metodo para Prencher inforacoes do paciente e associar ao responsavel
-	public void prencherInfo(Paciente paciente, Responsavel responsavel) {
-		System.out.println("|Admistracao do Sistema|");
-		System.out.println("------Registrar  Paciente:--------- ");
-		System.out.print("nome: ");
-		String nome = scan.next();
-		paciente.setNome(nome);
-		System.out.print("idade: ");
-		int idade = scan.nextInt();
-		paciente.setIdade(idade);
-		System.out.print("Genero ");
-		char genero = scan.next().charAt(0);
-		paciente.setGenero(genero);
-		System.out.print("Numero BI ");
-		String bi = scan.next();
-		paciente.setNumeroBI(bi);
-  		System.out.print("Endereco: ");
-		String endereco = scan.next();
-		paciente.setEndereco(endereco);
-		System.out.print("Contacto: ");
-		String contacto = scan.next();
-		paciente.setContacto(contacto);
-		System.out.println();
-		System.out.println("------Familiar responsavel:--------- ");
-		System.out.println(responsavel.getNome());
-		System.out.println(responsavel.getContacto());
-		System.out.println(responsavel.getEmail());
-		System.out.println("------------------------------------- ");
+	public void prencherInfo(Paciente paciente) {
+		try {
+			System.out.println("|Admistracao do Sistema|");
+			System.out.println("------Registrar  Paciente:--------- ");
+			System.out.print("nome: ");
+			String nome = scan.next();
+			paciente.setNome(nome);
+			System.out.print("idade: ");
+			int idade = scan.nextInt();
+			paciente.setIdade(idade);
+			System.out.print("Genero ");
+			char genero = scan.next().charAt(0);
+			paciente.setGenero(genero);
+			System.out.print("Numero BI ");
+			String bi = scan.next();
+			paciente.setNumeroBI(bi);
+	  		System.out.print("Endereco: ");
+			String endereco = scan.next();
+			paciente.setEndereco(endereco);
+			System.out.print("Contacto: ");
+			String contacto = scan.next();
+			paciente.setContacto(contacto);
+			System.out.println();
+		}
+		catch(InputMismatchException e){
+			System.out.println("Erro: Insira os dados corretamente");
+		}
+		catch(IllegalArgumentException e) {
+			System.out.println("Paciente invalido");
+		}
+		catch (RuntimeException e) {
+			System.out.println("Unexpected error");
+		}
 	}
 	
 	public void relatorio(Paciente paciente) {
-		System.out.println("|Admistracao do Sistema|");
-		System.out.println("-----------Emitir relatorio---------");
-		String relatar = scan.nextLine();
-		paciente.setInfomation(relatar);
+		try {
+			System.out.println("|Admistracao do Sistema|");
+			System.out.println("-----------Emitir relatorio---------");
+			String relatar = scan.nextLine();
+			paciente.setInfomation(relatar);
+	}
+	catch(IllegalArgumentException e) {
+		System.out.println("Paciente invalido");
+	}
+	catch (RuntimeException e) {
+		System.out.println("Unexpected error");
+	}
 		
 	}
 	
 	// Metodo para atualaizar estadso clinico do paciente
 	public void atualzarEstado(Paciente paciente) {
-		Date data3 = new Date();
-		System.out.println("|Admistracao do Sistema|");
-		System.out.println("-----------Atualizar Estado Clinico---------");
-		System.out.println(date3.format(data3));
-		System.out.println("Recuperado? \n 1.SIM \n 2.Nao");
-		int op = scan.nextInt();
-		switch (op) {
-		case 1: 
-			paciente.setInfectado(false);
-			paciente.setFaseclinica("Recuperado");
-			
-			break;
-		case 2: 
-			paciente.setInfectado(true);
-			System.out.println("Fase: ");
-			String fase = scan.next();
-			paciente.setFaseclinica(fase);
-			default:
-				System.out.println("Opcao invalida");break;
-		} 
+		try {
+			Date  data3 = new Date();
+			System.out.println("|Admistracao do Sistema|");
+			System.out.println("-----------Atualizar Estado Clinico---------");
+			System.out.println(date3.format(data3));
+			System.out.println("Recuperado? \n 1.SIM \n 2.Nao");
+			int op = scan.nextInt();
+			switch (op) {
+				case 1: 
+					paciente.setInfectado(false);
+					FaseClinica os = FaseClinica.valueOf("RECUPERADO"); // conver um String em um tipo enumerado
+					paciente.setFaseclinica(os);
+					
+					break;
+				case 2: 
+					paciente.setInfectado(true);
+					System.out.println("Fase: ");
+					String fase = scan.next();
+					FaseClinica os1 = FaseClinica.valueOf(fase); // conver um String em um tipo enumerado
+					
+					paciente.setFaseclinica(os1);
+				default:
+						System.out.println("Opcao invalida");break;
+						} 
+		}
+		catch(InputMismatchException e){
+			System.out.println("Erro: Insira os dados corretamente");
+		}
+		catch(IllegalArgumentException e) {
+			System.out.println("Paciente invalido");
+		}
+		catch (RuntimeException e) {
+			System.out.println("Unexpected error");
+		}
 		
 	}
 	
-	//  Meetodo para notificar o utilizador do sistema, neste caso oresponsavel pelo paciente
+	//  Meetodo para notificar o utilizador do sistema, neste caso o responsavel pelo paciente
 	public void notificarResponsavel(Responsavel responsavel) {
-		int resp =1;
-		System.out.println("|Admistracao do Sistema|");
-		System.out.println("------Notificar utilizador responsavel-----");
-		System.out.print("Escreva: ");
-		while(resp == 1) {
-		String mensagem = scan.nextLine();
-		responsavel.setNotificacoes(mensagem);
+		try {
+			int resp =1;
+			System.out.println("|Admistracao do Sistema|");
+			System.out.println("------Notificar utilizador responsavel-----");
+			System.out.print("Escreva: ");
+			while(resp == 1) {
+			String mensagem = scan.nextLine();
+			responsavel.setNotificacoes(mensagem);
+			System.out.println("Deseja enviar um novo E-mail? \n 1.Sim \n 2.Nao");
+			 resp = scan.nextInt();
 		}
-		System.out.println("Deseja enviar um novo E-mail? \n 1.Sim \n 2.Nao");
-		 resp = scan.nextInt();
+		scan.close();
+		}
+		catch(IllegalArgumentException e) {
+			System.out.println("Utilizador invalido");
+		}
+		catch (RuntimeException e) {
+			System.out.println("Unexpected error");
+		}
 	}
 }
 

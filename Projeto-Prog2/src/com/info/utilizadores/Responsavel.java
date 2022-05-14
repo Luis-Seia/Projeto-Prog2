@@ -20,13 +20,13 @@ import java.util.Scanner;
 
 import com.info.utilizadores.abstracts.classes.Pessoa;
 
-import Exception.DomainException;
+
 
 
 
 public class Responsavel extends Pessoa {
 	
-	
+	private boolean cadastrado;
 	private ArrayList<String> notificacoes = new ArrayList<String>(); // Arraylist que recebe as notificacoes do hospital
 	Scanner scan = new Scanner(System.in);
 	
@@ -67,9 +67,13 @@ public class Responsavel extends Pessoa {
 			this.setEmail(email);
 			System.out.println("----------------Cadastrado com sucesoo-----------------------\n Confira os seus dados");
 			this.info();
+			cadastrado = true;
 		}
 		catch(InputMismatchException e){
 		System.out.println("Erro: Insira os dados corretamente");
+		}
+		catch (RuntimeException e) {
+			System.out.println("Unexpected error");
 		}
 	}
 	
@@ -78,53 +82,61 @@ public class Responsavel extends Pessoa {
 	
 	// Metodo para acedar as informacoes do paciente associad
 	public void operacoes(Paciente paciente) {
-		try {
-			int opcao;
-			do {
-			System.out.println(" 1. Ficha Medica \n 2. Estado clinico \n 3. Notificacoes \n 4. relatorio \n 5. sair");
-			opcao = scan.nextInt();
-			switch (opcao) {
-			case 1:
-				System.out.println("Ficha Medica");
-				System.out.println("-----Informcoes pessoais----");
-				paciente.info();
-				System.out.println("--------------------------------");
-				System.out.println("Seguro: "+paciente.getCredencial()+"\n Hipertensao: "+paciente.isHipertensao()
-				+"\n Diabete: "+paciente.isDiabete()+"\nPeso: "+paciente.getPeso()+"\n");
-				if (paciente.isDoencaCronica()==true) {
-					System.out.println("Doenca cronica"+paciente.isDoencaCronica()+"   Tipo de doenca: " +paciente.getTipoCronico());
-				}else {
-					System.out.println(paciente.isDoencaCronica());
+		if (cadastrado != true) {
+			System.out.println("Erro: Nao esta cadastrado no SISTEMA");
+		}else {
+			try {
+				int opcao;
+				do {
+				System.out.println(" 1. Ficha Medica \n 2. Estado clinico \n 3. Notificacoes \n 4. relatorio \n 5. sair");
+				opcao = scan.nextInt();
+				switch (opcao) {
+				case 1:
+					System.out.println("Ficha Medica");
+					System.out.println("-----Informcoes pessoais----");
+					paciente.info();
+					System.out.println("--------------------------------");
+					System.out.println("Seguro: "+paciente.getCredencial()+"\n Hipertensao: "+paciente.isHipertensao()
+					+"\n Diabete: "+paciente.isDiabete()+"\nPeso: "+paciente.getPeso()+"\n");
+					if (paciente.isDoencaCronica()==true) {
+						System.out.println("Doenca cronica"+paciente.isDoencaCronica()+"   Tipo de doenca: " +paciente.getTipoCronico());
+					}else {
+						System.out.println(paciente.isDoencaCronica());
+					}
+					if (paciente.isSeguroMedico()== true) {
+						System.out.println("Seguro Medico: "+paciente.isSeguroMedico()+"     Seguradora: "+paciente.getSeguradora());
+					}else {
+						System.out.println("Seguro Medico: "+paciente.isSeguroMedico());
+					} 
+					System.out.println("Outras doenas: "+paciente.getOutrasDoencas());
+				
+				case 2:
+					System.out.println("Estado Clinico");
+					System.out.println(paciente.isInfectado());
+					System.out.println(paciente.getFaseclinica());break;
+			
+				case 3:
+					System.out.println("Notificacoes");
+					System.out.println(this.getNotificacoes());break;
+				
+				case 4:
+					DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+					System.out.println("Relatorio \n "+ dtf.format(LocalDateTime.now())+ "\n"+paciente.getNome()+ "\nTeve como resultado da avaliacao: \n "+paciente.getInfomation());break;
+				default:
+					System.out.println("Opcao invalida \n");break;
 				}
-				if (paciente.isSeguroMedico()== true) {
-					System.out.println("Seguro Medico: "+paciente.isSeguroMedico()+"     Seguradora: "+paciente.getSeguradora());
-				}else {
-					System.out.println("Seguro Medico: "+paciente.isSeguroMedico());
-				} 
-				System.out.println("Outras doenas: "+paciente.getOutrasDoencas());
+				}while (opcao != 5);
 			
-			case 2:
-				System.out.println("Estado Clinico");
-				System.out.println(paciente.isInfectado());
-				System.out.println(paciente.getFaseclinica());break;
-		
-			case 3:
-				System.out.println("Notificacoes");
-				System.out.println(this.getNotificacoes());break;
-			
-			case 4:
-				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-				System.out.println("Relatorio \n "+ dtf.format(LocalDateTime.now())+ "\n"+paciente.getNome()+ "\nTeve como resultado da avaliacao: \n "+paciente.getInfomation());break;
-			default:
-				System.out.println("Opcao invalida \n");break;
+			}catch(InputMismatchException e){
+				System.out.println("Erro: Insira os dados corretamente " );
+			}catch(IllegalArgumentException e) {
+				System.out.println("Nao esta associado a este paciente");
 			}
-			}while (opcao != 5);
-		
-		}catch(InputMismatchException e){
-			System.out.println("Erro: Insira os dados corretamente " );
-		}catch(IllegalArgumentException e) {
-			System.out.println("Nao esta associado a este paciente: "+e.getMessage());
+			catch (RuntimeException e) {
+				System.out.println("Unexpected error");
+			}
 		}
+		
 	}
 
 	@Override

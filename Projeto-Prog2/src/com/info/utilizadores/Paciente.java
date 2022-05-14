@@ -1,5 +1,6 @@
 package com.info.utilizadores;
 
+import com.enums.state.FaseClinica;
 import com.info.utilizadores.abstracts.classes.FichaMedica;
 
 public class Paciente extends FichaMedica{
@@ -9,7 +10,7 @@ public class Paciente extends FichaMedica{
 	
  //Atributos
 	private boolean infectado;
-	private String faseclinica;
+	private FaseClinica faseclinica;
 	private String referencia;
 	private String localizacacao;
 	private String infomation;
@@ -22,11 +23,11 @@ public class Paciente extends FichaMedica{
 	}
 
 	// getters e setters
-	public String getFaseclinica() {
+	public FaseClinica getFaseclinica() {
 		return faseclinica;
 	}
 
-	public void setFaseclinica(String faseclinica) {
+	public void setFaseclinica(FaseClinica faseclinica) {
 		this.faseclinica = faseclinica;
 	}
 
