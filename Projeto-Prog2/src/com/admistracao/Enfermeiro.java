@@ -230,6 +230,9 @@ public class Enfermeiro  {
 		catch(IllegalArgumentException e) {
 			System.out.println("Utilizador invalido");
 		}
+		catch(InputMismatchException e){
+			System.out.println("Erro: Insira uma opcao valida");
+		}
 		catch (RuntimeException e) {
 			System.out.println("Unexpected error");
 		}

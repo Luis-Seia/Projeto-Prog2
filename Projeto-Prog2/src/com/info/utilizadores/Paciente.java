@@ -10,7 +10,7 @@ public class Paciente extends FichaMedica{
 	
  //Atributos
 	private boolean infectado;
-	private FaseClinica faseclinica;
+	private FaseClinica faseclinica; // Tipo enumerado
 	private String referencia;
 	private String localizacacao;
 	private String infomation;
@@ -73,17 +73,7 @@ public class Paciente extends FichaMedica{
 	}
 	
 	
-	// Metodos
-	public void estadoClinico() {
-		
-	}
 	
-	public void fichaMedica() {
-		
-	}
-	 public void recuperado() {
-		 
-	 }
 	 
 	public void info() {
 		super.info();

@@ -1,9 +1,9 @@
 package com.info.utilizadores.abstracts.classes;
 
-import java.util.Scanner;
+
 
 public abstract class FichaMedica extends Pessoa {
-	Scanner scan = new Scanner(System.in);
+	
 	// Atriutos
 	private boolean seguroMedico;
 	private String seguradora;
