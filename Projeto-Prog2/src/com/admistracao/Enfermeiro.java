@@ -1,5 +1,12 @@
 package com.admistracao;
 
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.InputMismatchException;
@@ -7,13 +14,13 @@ import java.util.Scanner;
 import com.enums.state.FaseClinica;
 import com.info.utilizadores.Paciente;
 import com.info.utilizadores.Responsavel;
-// import java.io.BufferedReader;
-// import java.io.BufferedWriter;
-// import java.io.IOException
-
 
 		
-public class Enfermeiro  {
+public class Enfermeiro implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static SimpleDateFormat date3 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	Scanner scan = new Scanner(System.in);
 	private String nome;
@@ -67,7 +74,7 @@ public class Enfermeiro  {
 			paciente.setHipertensao(false);
 			default:
 				System.out.println("Opcao invalida");break;
-		}
+		 }
 		System.out.print("TipoSanguineo: ");
 		String tipoSanguineo = scan.next();
 		paciente.setTipoSanguineo(tipoSanguineo);
@@ -106,10 +113,14 @@ public class Enfermeiro  {
 		System.out.print("Outras doencas: ");
 		String outrasDoencas = scan.next();
 		paciente.setOutrasDoencas((outrasDoencas));
+	
 		}
+		
+		
 		catch(InputMismatchException e){
 			System.out.println("Erro: Insira os dados corretamente");
 		}
+		
 		catch(IllegalArgumentException e) {
 			System.out.println("Paciente invalido");
 		}
@@ -145,10 +156,12 @@ public class Enfermeiro  {
 			String contacto = scan.next();
 			paciente.setContacto(contacto);
 			System.out.println();
+			
 		}
 		catch(InputMismatchException e){
 			System.out.println("Erro: Insira os dados corretamente");
 		}
+		
 		catch(IllegalArgumentException e) {
 			System.out.println("Paciente invalido");
 		}
@@ -157,16 +170,33 @@ public class Enfermeiro  {
 		}
 	}
 	
+	
 	public void relatorio(Paciente paciente) {
 		try {
 			System.out.println("|Admistracao do Sistema|");
 			System.out.println("-----------Emitir relatorio---------");
-			String relatar = scan.nextLine();
-			paciente.setInfomation(relatar);
+			String path = "D:\\"+paciente.getNome()+""+paciente.getCredencial()+".txt";
+			File relatorio = new File(path);
+			FileWriter fw=new FileWriter(path);
+			BufferedWriter bo = new BufferedWriter(fw);
+			String relatar = scan.next();
+				bo.write(relatar);
+				bo.flush();
+				bo.close();
+				fw.close();
+			 
 	}
 	catch(IllegalArgumentException e) {
 		System.out.println("Paciente invalido");
-	}
+	
+	} catch (FileNotFoundException e) {
+		
+		e.printStackTrace();
+	}	
+		catch (IOException e) {
+			
+			e.printStackTrace();
+		}
 	catch (RuntimeException e) {
 		System.out.println("Unexpected error");
 	}
