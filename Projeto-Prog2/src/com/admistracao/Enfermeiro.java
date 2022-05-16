@@ -174,7 +174,7 @@ public class Enfermeiro implements Serializable {
 	public void relatorio(Paciente paciente) {
 		try {
 			System.out.println("|Admistracao do Sistema|");
-			System.out.println("-----------Emitir relatorio---------");
+			System.out.println("-----------Emitir relatorio---------\n Escreva");
 			String path = "D:\\"+paciente.getNome()+""+paciente.getCredencial()+".txt";
 			File relatorio = new File(path);
 			FileWriter fw=new FileWriter(path);
