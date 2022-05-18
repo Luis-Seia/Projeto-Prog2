@@ -1,18 +1,22 @@
 package com.info.utilizadores.abstracts.classes;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public abstract class Pessoa {
 	
 	// ATRIBUTOS
 	private String nome;
+	private String senha;
 	private int idade;
 	private char genero;
 	private String contacto;
 	private String email;
 	private String endereco;
 	private String NumeroBI;
-	private String dataNascimento;
+	protected boolean cadastrado;
+	
+	
 	
 	Scanner scan = new Scanner(System.in);
 	
@@ -22,6 +26,13 @@ public abstract class Pessoa {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	public int getIdade() {
 		return idade;
@@ -59,16 +70,59 @@ public abstract class Pessoa {
 	public void setNumeroBI(String numeroBI) {
 		NumeroBI = numeroBI;
 	}
-	public String getDataNascimento() {
-		return dataNascimento;
-	}
-	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
 	
+	
+	// Medoto para cadastrar o usuario responsavel pelo pacientee
+	
+		public void cadastrar() { 
+			try {
+				System.out.println("---------Cadastro do responsavel pelo paciente------");
+				System.out.print("nome: ");
+				String nome = scan.nextLine();
+				System.out.print("Insira uma Senha: ");
+				String senha = scan.nextLine();
+				this.setSenha(nome);
+				System.out.print("idade: ");
+				int idade = scan.nextInt();
+				this.setIdade(idade);
+				System.out.print("Genero ");
+				char genero = scan.next().charAt(0);
+				this.setGenero(genero);
+				scan.nextLine();
+				System.out.print("Numero BI: ");
+				String bi = scan.nextLine();
+				this.setNumeroBI(bi);
+				System.out.print("Endereco: ");
+				String endereco = scan.nextLine();
+				this.setEndereco(endereco);
+				System.out.print("Contacto: ");
+				String contacto = scan.nextLine();
+				this.setContacto(contacto);
+				System.out.print("E-mail: ");
+				String email = scan.nextLine();
+				this.setEmail(email);
+				System.out.println("----------------Cadastrado com sucesoo-----------------------\n Confira os seus dados");
+				this.info();
+				cadastrado = true;
+			}
+			catch(InputMismatchException e){
+			System.out.println("Erro: Insira os dados corretamente");
+			}
+			catch (RuntimeException e) {
+				System.out.println("Unexpected error" +e.getStackTrace());
+			}
+		}
+		
 	//Metodos
+		 public Boolean efetuarLogin(String nome, String senha){
+		        if(this.nome.equals(nome) && this.senha.equals(senha)){
+		            return true;
+		        }else{
+		            return false;
+		        }
+		    }
 	public void info(){
-		System.out.println("Nome: "+this.getNome()+"\n Data de nascimento: "+this.getDataNascimento()+""
+		System.out.println("Nome: "+this.getNome()+"\n Data de nascimento: "
 				+ "\n Bilhete de identificacao NR: "+this.getNumeroBI()+"\n Genero :"+this.getGenero()+"\n Endereco: "+this.getEndereco()+"\n contacto: "+this.getContacto()
 				+"\n e-mail: "+this.getEmail()+"\n");
 	}

@@ -2,8 +2,9 @@ package com.info.utilizadores;
 
 import com.enums.state.FaseClinica;
 import com.info.utilizadores.abstracts.classes.FichaMedica;
+import com.info.utilizadores.abstracts.classes.Pessoa;
 
-public class Paciente extends FichaMedica{
+public class Paciente extends Pessoa{
 	/*
 	 * A classe Paciente herdara atributos e mmetodos da classe pessoa e da classe FichaMedica
 	 */
@@ -15,11 +16,21 @@ public class Paciente extends FichaMedica{
 	private String localizacacao;
 	private String infomation;
 	private Responsavel responsavel;
+	public FichaMedica ficha;
 	
 	
-	
+
+	public FichaMedica getFicha() {
+		return ficha;
+	}
+
+	public void setFicha(FichaMedica ficha) {
+		this.ficha = ficha;
+	}
+
 	public Paciente() {
 		this.infectado = true;
+		
 	}
 
 	// getters e setters

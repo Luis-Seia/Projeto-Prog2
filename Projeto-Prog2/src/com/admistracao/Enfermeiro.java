@@ -14,29 +14,20 @@ import java.util.Scanner;
 import com.enums.state.FaseClinica;
 import com.info.utilizadores.Paciente;
 import com.info.utilizadores.Responsavel;
+import com.info.utilizadores.abstracts.classes.Pessoa;
 
 		
-public class Enfermeiro implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class Enfermeiro extends Pessoa  {
+	
+
 	private static SimpleDateFormat date3 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	Scanner scan = new Scanner(System.in);
-	private String nome;
-	private String credencial;
-	private String localizacao;
-	private String turno;
-	 
 	
-	
-	public Enfermeiro(String nome, String credencial, String localizacao, String turno) {
-		this.nome = nome;
-		this.credencial = credencial;
-		this.localizacao = localizacao;
-		this.turno = turno;
+	@Override
+	public void cadastrar() {
+		super.cadastrar();
 	}
-
+	
 // Metodo para prencher ficha medica do paciente
 	public void prencherFicha(Paciente paciente) {
 		try {
@@ -46,73 +37,73 @@ public class Enfermeiro implements Serializable {
 		int op = scan.nextInt();
 		switch (op) {
 		case 1: 
-			paciente.setSeguroMedico(true);
+			paciente.ficha.setSeguroMedico(true);
 			System.out.print("Seguradora: ");
 			String seguradora = scan.next();
-			paciente.setSeguradora((seguradora));
+			paciente.ficha.setSeguradora(seguradora);
 			
 			
 			break;
 		case 2: 
-			paciente.setSeguroMedico(false);;
+			paciente.ficha.setSeguroMedico(false);;
 			default:
 				System.out.println("Opcao invalida");break;
 		} 
 		System.out.print("Credencial: ");
 		String credencial = scan.next();
-		paciente.setCredencial(credencial);
+		paciente.ficha.setCredencial(credencial);
 		
 		// verificar se o paciente tem Hipertensao
 		System.out.println("Hipertensao? \n 1.SIM \n 2.Nao");
 		int op2 = scan.nextInt();
 		switch (op2) {
 		case 1: 
-			paciente.setHipertensao(true);
+			paciente.ficha.setHipertensao(true);
 			
 			break;
 		case 2: 
-			paciente.setHipertensao(false);
+			paciente.ficha.setHipertensao(false);
 			default:
 				System.out.println("Opcao invalida");break;
 		 }
 		System.out.print("TipoSanguineo: ");
 		String tipoSanguineo = scan.next();
-		paciente.setTipoSanguineo(tipoSanguineo);
+		paciente.ficha.setTipoSanguineo(tipoSanguineo);
 		
 		// verificar se o paciente tem diabete
 		System.out.println("Diabete? \n 1.SIM \n 2.Nao");
 		int op3 = scan.nextInt();
 		switch (op3) {
 		case 1: 
-			paciente.setDiabete(true);
+			paciente.ficha.setDiabete(true);
 			
 			break;
 		case 2: 
-			paciente.setDiabete(false);
+			paciente.ficha.setDiabete(false);
 			default:
 				System.out.println("Opcao invalida");break;
 		}
 		System.out.print("Peso: ");
 		float peso = scan.nextFloat();
-		paciente.setPeso(peso);
+		paciente.ficha.setPeso(peso);
 		System.out.print(" ");
 		System.out.println("Doenca cronica:? \n 1.SIM \n 2.Nao");
 		int op4 = scan.nextInt();
 		switch (op4) {
 		case 1: 
-			paciente.setDoencaCronica(true);
+			paciente.ficha.setDoencaCronica(true);
 			System.out.print("Tipo da doenca: ");
 			String tipoCronico = scan.next();
-			paciente.setTipoCronico((tipoCronico));
+			paciente.ficha.setTipoCronico((tipoCronico));
 			break;
 		case 2: 
-			paciente.setDoencaCronica(false);
+			paciente.ficha.setDoencaCronica(false);
 			default:
 				System.out.println("Opcao invalida");break;
 		}
 		System.out.print("Outras doencas: ");
 		String outrasDoencas = scan.next();
-		paciente.setOutrasDoencas((outrasDoencas));
+		paciente.ficha.setOutrasDoencas((outrasDoencas));
 	
 		}
 		
@@ -175,7 +166,7 @@ public class Enfermeiro implements Serializable {
 		try {
 			System.out.println("|Admistracao do Sistema|");
 			System.out.println("-----------Emitir relatorio---------\n Escreva");
-			String path = "D:\\"+paciente.getNome()+""+paciente.getCredencial()+".txt";
+			String path = "D:\\"+paciente.getNome()+""+paciente.getEmail()+".txt";
 			File relatorio = new File(path);
 			FileWriter fw=new FileWriter(path);
 			BufferedWriter bo = new BufferedWriter(fw);

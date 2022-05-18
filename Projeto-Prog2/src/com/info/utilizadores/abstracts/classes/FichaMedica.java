@@ -2,7 +2,7 @@ package com.info.utilizadores.abstracts.classes;
 
 
 
-public abstract class FichaMedica extends Pessoa {
+public class FichaMedica extends Pessoa {
 	
 	// Atriutos
 	private boolean seguroMedico;

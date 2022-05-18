@@ -15,27 +15,20 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import com.info.utilizadores.abstracts.classes.Pessoa;
 
-
-
-
-
-public class Responsavel extends Pessoa  {
+public class Responsavel extends Pessoa {
 	
-
-	private boolean cadastrado;
+	//Atributos
 	private ArrayList<String> notificacoes = new ArrayList<String>(); // Arraylist que recebe as notificacoes do hospital
 	Scanner scan = new Scanner(System.in); 
 	
+	// Getters e Settrs
 	public ArrayList<String> getNotificacoes() {
 		return notificacoes;
 	}
@@ -43,51 +36,11 @@ public class Responsavel extends Pessoa  {
 	public void setNotificacoes(String mensagem) { // modifiquei o paramentro
 		this.notificacoes.add(mensagem);
 	}
-	
-	// Medoto para cadastrar o usuario responsavel pelo pacientee
-	
-	public void cadastrar() { 
-		try {
-			System.out.println("---------Cadastro do responsavel pelo paciente------");
-			System.out.print("nome: ");
-			String nome = scan.nextLine();
-			this.setNome(nome);
-			System.out.print("idade: ");
-			int idade = scan.nextInt();
-			this.setIdade(idade);
-			System.out.print("Genero ");
-			char genero = scan.next().charAt(0);
-			this.setGenero(genero);
-			scan.nextLine();
-			System.out.print("Numero BI: ");
-			String bi = scan.nextLine();
-			this.setNumeroBI(bi);
-			System.out.print("Endereco: ");
-			String endereco = scan.nextLine();
-			this.setEndereco(endereco);
-			System.out.print("Contacto: ");
-			String contacto = scan.nextLine();
-			this.setContacto(contacto);
-			System.out.print("E-mail: ");
-			String email = scan.nextLine();
-			this.setEmail(email);
-			System.out.println("----------------Cadastrado com sucesoo-----------------------\n Confira os seus dados");
-			this.info();
-			cadastrado = true;
-			
-			
-			
-		}
-		catch(InputMismatchException e){
-		System.out.println("Erro: Insira os dados corretamente");
-		}
-		catch (RuntimeException e) {
-			System.out.println("Unexpected error" +e.getStackTrace());
-		}
+	// Cadastro
+	@Override
+	public void cadastrar() {
+		super.cadastrar();
 	}
-	
-	
-	
 	
 	// Metodo para acedar as informacoes do paciente associad
 	public void operacoes(Paciente paciente) {
@@ -106,19 +59,19 @@ public class Responsavel extends Pessoa  {
 					System.out.println("-----Informcoes pessoais----");
 					paciente.info();
 					System.out.println("--------------------------------");
-					System.out.println("Seguro: "+paciente.getCredencial()+"\n Hipertensao: "+paciente.isHipertensao()
-					+"\n Diabete: "+paciente.isDiabete()+"\nPeso: "+paciente.getPeso()+"\n");
-					if (paciente.isDoencaCronica()==true) {
-						System.out.println("Doenca cronica"+paciente.isDoencaCronica()+"   Tipo de doenca: " +paciente.getTipoCronico());
+					System.out.println("Seguro: "+paciente.ficha.getCredencial()+"\n Hipertensao: "+paciente.ficha.isHipertensao()
+					+"\n Diabete: "+paciente.ficha.isDiabete()+"\nPeso: "+paciente.ficha.getPeso()+"\n");
+					if (paciente.ficha.isDoencaCronica()==true) {
+						System.out.println("Doenca cronica"+paciente.ficha.isDoencaCronica()+"   Tipo de doenca: " +paciente.ficha.getTipoCronico());
 					}else {
-						System.out.println(paciente.isDoencaCronica());
+						System.out.println(paciente.ficha.isDoencaCronica());
 					}
-					if (paciente.isSeguroMedico()== true) {
-						System.out.println("Seguro Medico: "+paciente.isSeguroMedico()+"     Seguradora: "+paciente.getSeguradora());
+					if (paciente.ficha.isSeguroMedico()== true) {
+						System.out.println("Seguro Medico: "+paciente.ficha.isSeguroMedico()+"     Seguradora: "+paciente.ficha.getSeguradora());
 					}else {
-						System.out.println("Seguro Medico: "+paciente.isSeguroMedico());
+						System.out.println("Seguro Medico: "+paciente.ficha.isSeguroMedico());
 					} 
-					System.out.println("Outras doenas: "+paciente.getOutrasDoencas());
+					System.out.println("Outras doenas: "+paciente.ficha.getOutrasDoencas());
 				
 				case 2:
 					System.out.println("Estado Clinico");
@@ -135,7 +88,7 @@ public class Responsavel extends Pessoa  {
 							"\nTeve como resultado da avaliacao: \n "+paciente.getInfomation());
 					
 					// ler o arquivo relatorio criado na classe enfermiro
-					String path = "D:\\"+paciente.getNome()+""+paciente.getCredencial()+".txt";
+					String path = "D:\\"+paciente.getNome()+""+paciente.getEmail()+".txt";
 					
 					try {
 						File relatorio = new File(path);
@@ -166,6 +119,8 @@ public class Responsavel extends Pessoa  {
 		}
 		
 	}
+
+	
 
 	@Override
 	public void info() {
