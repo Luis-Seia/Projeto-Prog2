@@ -101,7 +101,7 @@ public abstract class Pessoa {
 				System.out.print("E-mail: ");
 				String email = scan.nextLine();
 				this.setEmail(email);
-				System.out.println("----------------Cadastrado com sucesoo-----------------------\n Confira os seus dados");
+				System.out.println("----------------Cadastrado com sucesoo--------------------\n Confira os seus dados");
 				this.info();
 				cadastrado = true;
 			}
