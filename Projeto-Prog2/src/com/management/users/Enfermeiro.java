@@ -260,7 +260,7 @@ public class Enfermeiro extends Pessoa  {
 		}
 	}
 	
-	 public Paciente operarPaciente(){
+	 public Paciente operaracaoPaciente(){
 	        this.allPacientes();
 	        System.out.println("Selecione o paciente: ");
 	        int n = scan.nextInt();

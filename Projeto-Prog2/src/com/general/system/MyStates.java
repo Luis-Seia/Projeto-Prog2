@@ -98,10 +98,10 @@ public class MyStates {
   				do {
   				switch(ops) {
   				case 1:
-  					Paciente paciente1 = logado.operarPaciente();
+  					Paciente paciente1 = logado.operaracaoPaciente();
   					logado.prencherFicha(paciente1);break;
   				case 2:
-  					Paciente paciente = logado.operarPaciente();
+  					Paciente paciente = logado.operaracaoPaciente();
   					logado.atualzarEstado(paciente);break;
   				case 3:
   					Responsavel responsvel = this.selecionarResponsavel();
