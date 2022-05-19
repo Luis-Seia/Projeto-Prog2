@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -19,7 +20,7 @@ import com.info.utilizadores.abstracts.classes.Pessoa;
 		
 public class Enfermeiro extends Pessoa  {
 	
-
+	static ArrayList<Paciente> pacientes = new ArrayList<>();
 	private static SimpleDateFormat date3 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	Scanner scan = new Scanner(System.in);
 	
@@ -29,7 +30,8 @@ public class Enfermeiro extends Pessoa  {
 	}
 	
 // Metodo para prencher ficha medica do paciente
-	public void prencherFicha(Paciente paciente) {
+	public void prencherFicha(Paciente paciente ) {
+		
 		try {
 		System.out.println("|Admistracao do Sistema|");
 		System.out.println("Prenchimento da ficha medica do paciente: \n ");
@@ -124,7 +126,8 @@ public class Enfermeiro extends Pessoa  {
 	
 	
 	// Metodo para Prencher inforacoes do paciente e associar ao responsavel
-	public void prencherInfo(Paciente paciente) {
+	public void prencherInfo() {
+		Paciente paciente = new Paciente();
 		try {
 			System.out.println("|Admistracao do Sistema|");
 			System.out.println("------Registrar  Paciente:--------- ");
@@ -147,6 +150,7 @@ public class Enfermeiro extends Pessoa  {
 			String contacto = scan.next();
 			paciente.setContacto(contacto);
 			System.out.println();
+			pacientes.add(paciente);
 			
 		}
 		catch(InputMismatchException e){
@@ -162,11 +166,11 @@ public class Enfermeiro extends Pessoa  {
 	}
 	
 	
-	public void relatorio(Paciente paciente) {
+	public void relatar(Responsavel responsavel) {
 		try {
 			System.out.println("|Admistracao do Sistema|");
 			System.out.println("-----------Emitir relatorio---------\n Escreva");
-			String path = "D:\\"+paciente.getNome()+""+paciente.getEmail()+".txt";
+			String path = "D:\\"+responsavel.getNome()+""+responsavel.getEmail()+".txt";
 			File relatorio = new File(path);
 			FileWriter fw=new FileWriter(path);
 			BufferedWriter bo = new BufferedWriter(fw);
@@ -258,6 +262,21 @@ public class Enfermeiro extends Pessoa  {
 			System.out.println("Unexpected error");
 		}
 	}
+	
+	 public Paciente operarPaciente(){
+	        this.allPacientes();
+	        System.out.println("Selecione o paciente: ");
+	        int n = scan.nextInt();
+	        return Enfermeiro.pacientes.get(n-1);
+	    }
+	 public void allPacientes(){
+		 int n =1;
+         System.out.println("Nome          Data de Entrada");
+         for(Paciente pacientes: Enfermeiro.pacientes){
+        	 System.out.println(n + ": " + pacientes.toString());
+         }
+            
+	 }
 }
 
 

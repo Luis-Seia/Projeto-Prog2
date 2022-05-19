@@ -88,7 +88,7 @@ public class Responsavel extends Pessoa {
 							"\nTeve como resultado da avaliacao: \n "+paciente.getInfomation());
 					
 					// ler o arquivo relatorio criado na classe enfermiro
-					String path = "D:\\"+paciente.getNome()+""+paciente.getEmail()+".txt";
+					String path = "D:\\"+this.getNome()+""+this.getEmail()+".txt";
 					
 					try {
 						File relatorio = new File(path);
