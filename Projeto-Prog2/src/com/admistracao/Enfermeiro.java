@@ -31,7 +31,6 @@ public class Enfermeiro extends Pessoa  {
 	
 // Metodo para prencher ficha medica do paciente
 	public void prencherFicha(Paciente paciente ) {
-		
 		try {
 		System.out.println("|Admistracao do Sistema|");
 		System.out.println("Prenchimento da ficha medica do paciente: \n ");
@@ -43,7 +42,6 @@ public class Enfermeiro extends Pessoa  {
 			System.out.print("Seguradora: ");
 			String seguradora = scan.next();
 			paciente.ficha.setSeguradora(seguradora);
-			
 			
 			break;
 		case 2: 
@@ -108,8 +106,6 @@ public class Enfermeiro extends Pessoa  {
 		paciente.ficha.setOutrasDoencas((outrasDoencas));
 	
 		}
-		
-		
 		catch(InputMismatchException e){
 			System.out.println("Erro: Insira os dados corretamente");
 		}
@@ -275,7 +271,6 @@ public class Enfermeiro extends Pessoa  {
          for(Paciente pacientes: Enfermeiro.pacientes){
         	 System.out.println(n + ": " + pacientes.toString());
          }
-            
 	 }
 }
 
