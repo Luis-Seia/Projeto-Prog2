@@ -1,4 +1,4 @@
-package com.info.utilizadores;
+package com.info.users;
 /*
  * A classe Responsavel corresponde ao utilizador responsavel pelo paciente que ira se cadastrar
   no sistema e efetuar operacoes como:
@@ -20,7 +20,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import com.info.utilizadores.abstracts.classes.Pessoa;
+
+import com.info.users.abstracts.classes.Pessoa;
 
 public class Responsavel extends Pessoa {
 	
@@ -124,8 +125,7 @@ public class Responsavel extends Pessoa {
 
 	@Override
 	public void info() {
-		System.out.println("Nome: "+this.getNome()
-				+ "\n Bilhete de identificacao NR: "+this.getNumeroBI()+"\n Genero :"+this.getGenero()+"\n Endereco: "+this.getEndereco()+"\n contacto: "+this.getContacto());
+		super.info();
 	}
 	
 }

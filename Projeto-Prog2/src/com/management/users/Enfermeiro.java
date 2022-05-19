@@ -1,4 +1,4 @@
-package com.admistracao;
+package com.management.users;
 
 
 import java.io.BufferedWriter;
@@ -13,14 +13,14 @@ import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import com.enums.state.FaseClinica;
-import com.info.utilizadores.Paciente;
-import com.info.utilizadores.Responsavel;
-import com.info.utilizadores.abstracts.classes.Pessoa;
+import com.info.users.Paciente;
+import com.info.users.Responsavel;
+import com.info.users.abstracts.classes.Pessoa;
 
 		
 public class Enfermeiro extends Pessoa  {
 	
-	static ArrayList<Paciente> pacientes = new ArrayList<>();
+	public static ArrayList<Paciente> pacientes = new ArrayList<>();
 	private static SimpleDateFormat date3 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	Scanner scan = new Scanner(System.in);
 	
@@ -42,7 +42,6 @@ public class Enfermeiro extends Pessoa  {
 			System.out.print("Seguradora: ");
 			String seguradora = scan.next();
 			paciente.ficha.setSeguradora(seguradora);
-			
 			break;
 		case 2: 
 			paciente.ficha.setSeguroMedico(false);;
@@ -114,9 +113,8 @@ public class Enfermeiro extends Pessoa  {
 			System.out.println("Paciente invalido");
 		}
 		catch (RuntimeException e) {
-			System.out.println("Unexpected error");
+		System.out.println("Unexpected error");
 		}
-		
 			
 	}
 	
@@ -145,6 +143,9 @@ public class Enfermeiro extends Pessoa  {
 			System.out.print("Contacto: ");
 			String contacto = scan.next();
 			paciente.setContacto(contacto);
+			System.out.println("Referencia");
+			String referencia = scan.next();
+			paciente.setReferencia(referencia);
 			System.out.println();
 			pacientes.add(paciente);
 			
@@ -161,7 +162,7 @@ public class Enfermeiro extends Pessoa  {
 		}
 	}
 	
-	
+	// Metodo para relatar o utilizador
 	public void relatar(Responsavel responsavel) {
 		try {
 			System.out.println("|Admistracao do Sistema|");
@@ -267,9 +268,8 @@ public class Enfermeiro extends Pessoa  {
 	    }
 	 public void allPacientes(){
 		 int n =1;
-         System.out.println("Nome          Data de Entrada");
          for(Paciente pacientes: Enfermeiro.pacientes){
-        	 System.out.println(n + ": " + pacientes.toString());
+        	 System.out.println(n + ": " + pacientes.getNome().toString());
          }
 	 }
 }

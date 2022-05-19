@@ -1,8 +1,7 @@
-package com.info.utilizadores;
+package com.info.users;
 
 import com.enums.state.FaseClinica;
-import com.info.utilizadores.abstracts.classes.FichaMedica;
-import com.info.utilizadores.abstracts.classes.Pessoa;
+import com.info.users.abstracts.classes.Pessoa;
 
 public class Paciente extends Pessoa{
 	/*
@@ -17,7 +16,9 @@ public class Paciente extends Pessoa{
 	private String infomation;
 	private Responsavel responsavel;
 	public FichaMedica ficha;
-	
+	{
+		ficha = new FichaMedica();
+	}
 	
 
 	public FichaMedica getFicha() {
@@ -84,7 +85,13 @@ public class Paciente extends Pessoa{
 	}
 	
 	
-	
+	 public Boolean efetuarLoga(String nome, String referencia){
+	        if(this.getNome().equals(nome) && this.getReferencia().equals(referencia)){
+	            return true;
+	        }else{
+	            return false;
+	        }
+	    }
 	 
 	public void info() {
 		super.info();

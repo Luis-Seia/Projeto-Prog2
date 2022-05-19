@@ -1,4 +1,4 @@
-package com.info.utilizadores.abstracts.classes;
+package com.info.users;
 
 
 

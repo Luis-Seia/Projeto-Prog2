@@ -1,4 +1,4 @@
-package com.info.utilizadores.abstracts.classes;
+package com.info.users.abstracts.classes;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -76,7 +76,7 @@ public abstract class Pessoa {
 	
 		public void cadastrar() { 
 			try {
-				System.out.println("---------Cadastro do responsavel pelo paciente------");
+			
 				System.out.print("nome: ");
 				String nome = scan.nextLine();
 				System.out.print("Insira uma Senha: ");
