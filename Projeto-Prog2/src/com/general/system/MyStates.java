@@ -1,14 +1,16 @@
 package com.general.system;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import com.general.system.interfaces.IMystates;
 import com.info.users.Paciente;
 import com.info.users.Responsavel;
 import com.management.users.Enfermeiro;
 
 
-public class MyStates {
+public class MyStates implements IMystates{
 	Scanner scan = new Scanner(System.in);
 	private ArrayList<Enfermeiro> enfermeiros;
     private ArrayList<Responsavel> responsaveis;
@@ -84,6 +86,8 @@ public class MyStates {
 		        }
 		    }
           public void operacoesEnfermeiro(Enfermeiro logado) {
+        	  try {
+        	  logado = new Enfermeiro();
         	  int opcao;
         	  do {
         	  System.out.println("1. Registrar um novo paciente \n 2. Operar paciente exitente \n 3. sair");
@@ -92,15 +96,16 @@ public class MyStates {
   			case 1:
   				logado.prencherInfo();break;
   			case 2:
-  				System.out.println("1. Prencher\\Atualizar Ficha Medica 2. Atualizar Estado Clinico  \n 3."
+  				System.out.println("1. Prencher\\Atualizar Ficha Medica \n 2. Atualizar Estado Clinico  \n 3. sair"
   	        	  		+ "Notificar responsavel \n 4. Relatar \n 5. Sair");
   				int ops = scan.nextInt();
-  				do {
+  				
   				switch(ops) {
   				case 1:
   					Paciente paciente1 = logado.operaracaoPaciente();
   					logado.prencherFicha(paciente1);break;
-  				case 2:
+  		
+				case 2:
   					Paciente paciente = logado.operaracaoPaciente();
   					logado.atualzarEstado(paciente);break;
   				case 3:
@@ -112,10 +117,17 @@ public class MyStates {
   				default:
   					System.out.println("Opcao invalida");
   					}
-  				}while (ops != 5);
-  			}
+  				}
         	  }while (opcao != 3);
-        	  
+        	  menu();
+        	  }catch(InputMismatchException e){
+  				System.out.println("Erro: Insira os dados corretamente " );
+  			}catch(IllegalArgumentException e) {
+  				System.out.println("Nao esta associado a este paciente");
+  			}
+  			catch (RuntimeException e) {
+  				System.out.println("Unexpected error");
+  			}
           }
           public void operacoesResponsavel(Responsavel responsavel ) {
         	  System.out.println("Insira as credencias do seu parente para ter acesso aos dados");
@@ -159,6 +171,10 @@ public class MyStates {
               for(Responsavel responsavel: responsaveis ){
              	 System.out.println(n + ": " + responsavel.toString());
               }
+          }
+          
+          public void menuEnfermeiro() {
+        	  
           }
     
 }
