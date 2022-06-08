@@ -23,7 +23,7 @@ public class Enfermeiro extends Pessoa  {
 	public static ArrayList<Paciente> pacientes = new ArrayList<>();
 	private static SimpleDateFormat date3 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	Scanner scan = new Scanner(System.in);
-	
+
 	@Override
 	public void cadastrar() {
 		super.cadastrar();
