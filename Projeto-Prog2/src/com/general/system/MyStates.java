@@ -14,6 +14,7 @@ public class MyStates implements IMystates{
 	Scanner scan = new Scanner(System.in);
 	private ArrayList<Enfermeiro> enfermeiros;
     private ArrayList<Responsavel> responsaveis;
+    
     {
     	enfermeiros = new ArrayList<>();
     	responsaveis = new ArrayList<>();
@@ -21,12 +22,13 @@ public class MyStates implements IMystates{
     }
     
     public void menu() {
+    	try {
     	System.out.println("****My States****");
     	System.out.println("1. Enfermeiro \n 2. Utlizador\\Responsavel ");
     	int opcao  = scan.nextInt();
     	switch(opcao) {
     	case 1: 
-    		System.out.println("Enfermeiro: \n 1.Fazer login \n 2. Cadastrar");
+    		System.out.println("Enfermeiro: \n 1. Fazer login \n 2. Cadastrar");
     		int op = scan.nextInt();
     			switch(op) {
     			case 1:
@@ -48,6 +50,9 @@ public class MyStates implements IMystates{
 				System.out.println("OPcao invalida");break;
 				}
     		}
+    	}catch(InputMismatchException e) {
+    		System.out.println("Ensira os dados corretamente");
+    	}
     	}
     
     
