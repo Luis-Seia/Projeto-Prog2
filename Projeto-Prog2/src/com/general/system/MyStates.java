@@ -107,10 +107,8 @@ public class MyStates implements IMystates {
 					logado.prencherInfo();
 					break;
 				case 2:
-					System.out.println("1. Prencher\\Atualizar Ficha Medica \n 2. Atualizar Estado Clinico  \n 3. sair"
-							+ "Notificar responsavel \n 4. Relatar \n 5. Sair");
+					this.menuEnfermeiro();
 					int ops = scan.nextInt();
-
 					switch (ops) {
 					case 1:
 						Paciente paciente1 = logado.operaracaoPaciente();
@@ -182,6 +180,8 @@ public class MyStates implements IMystates {
 		return this.responsaveis.get(n - 1);
 	}
 
+	
+	
 	public void allResponavel() {
 		int n = 1;
 		for (Responsavel responsavel : responsaveis) {
@@ -190,7 +190,8 @@ public class MyStates implements IMystates {
 	}
 
 	public void menuEnfermeiro() {
-
+		System.out.println("1. Prencher\\Atualizar Ficha Medica \n 2. Atualizar Estado Clinico  \n 3. sair"
+				+ "Notificar responsavel \n 4. Relatar \n 5. Sair");
 	}
 
 }
