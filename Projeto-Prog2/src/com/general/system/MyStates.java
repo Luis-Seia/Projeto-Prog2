@@ -169,7 +169,7 @@ public class MyStates implements IMystates {
 	}
 
 	
-	// 
+	//  metodo para o cadastro do utilizador
 	public void cadastrarResponsavel() {
 		System.out.println("---------Cadastro do responsavel pelo paciente------");
 		Responsavel responsavel = new Responsavel();
