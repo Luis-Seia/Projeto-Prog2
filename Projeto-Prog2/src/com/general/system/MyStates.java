@@ -59,7 +59,7 @@ public class MyStates implements IMystates {
 		}
 	}
 
-	// login para o responsavel
+	// login para o Enfermeiro
 	public void login_do_Enfermeiro() {
 		System.out.println("Username: ");
 		String nome = scan.next();
@@ -95,6 +95,7 @@ public class MyStates implements IMystates {
 		}
 	}
 
+	// Esse metodo o enfermeiro fara as operacoes no sistema
 	public void operacoesEnfermeiro(Enfermeiro logado) {
 		try {
 			logado = new Enfermeiro();
@@ -142,6 +143,7 @@ public class MyStates implements IMystates {
 		}
 	}
 
+	// metodo para que o utilizador tenha acesso as informacoes do seu parente internado
 	public void operacoesResponsavel(Responsavel responsavel) {
 		System.out.println("Insira as credencias do seu parente para ter acesso aos dados");
 		System.out.println("Nome: ");
@@ -157,6 +159,7 @@ public class MyStates implements IMystates {
 		}
 	}
 
+	// metodo para o cadastro do efermeiro
 	public void cadastrarEnfermeiro() {
 		Enfermeiro enfermeiro = new Enfermeiro();
 		System.out.println("---------Cadastrar Enfermeiro------");
@@ -165,6 +168,8 @@ public class MyStates implements IMystates {
 		operacoesEnfermeiro(enfermeiro);
 	}
 
+	
+	// 
 	public void cadastrarResponsavel() {
 		System.out.println("---------Cadastro do responsavel pelo paciente------");
 		Responsavel responsavel = new Responsavel();
