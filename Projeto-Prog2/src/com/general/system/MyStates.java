@@ -180,8 +180,7 @@ public class MyStates implements IMystates {
 		return this.responsaveis.get(n - 1);
 	}
 
-	
-	
+	// metodos para listar todos usuarios
 	public void allResponavel() {
 		int n = 1;
 		for (Responsavel responsavel : responsaveis) {
