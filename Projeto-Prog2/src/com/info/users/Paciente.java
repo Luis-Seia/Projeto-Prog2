@@ -85,7 +85,7 @@ public class Paciente extends Pessoa{
 	}
 	
 	
-	 public Boolean efetuarLoga(String nome, String referencia){
+	 public Boolean efetuarLogin(String nome, String referencia){
 	        if(this.getNome().equals(nome) && this.getReferencia().equals(referencia)){
 	            return true;
 	        }else{

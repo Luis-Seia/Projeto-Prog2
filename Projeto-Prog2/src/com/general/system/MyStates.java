@@ -3,7 +3,6 @@ package com.general.system;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import com.general.system.interfaces.IMystates;
 import com.info.users.Paciente;
 import com.info.users.Responsavel;
@@ -55,15 +54,15 @@ public class MyStates implements IMystates {
 					break;
 				}
 			}
-		}catch(InputMismatchException e) {
+		} catch (InputMismatchException e) {
 			System.out.println("Ensira os dados corretamenaste");
 		}
 	}
 
+	// login para o responsavel
 	public void login_do_Enfermeiro() {
 		System.out.println("Username: ");
 		String nome = scan.next();
-
 		System.out.println("Password: ");
 		String senha = scan.next();
 
@@ -78,10 +77,10 @@ public class MyStates implements IMystates {
 		}
 	}
 
+	// login para o utilizador
 	public void login_do_Responsavel() {
 		System.out.println("Nome: ");
 		String nome = scan.next();
-
 		System.out.println("Password: ");
 		String senha = scan.next();
 
@@ -152,7 +151,7 @@ public class MyStates implements IMystates {
 		System.out.println("Refrencia: ");
 		String referencia = scan.next();
 		for (Paciente pacient : Enfermeiro.pacientes) {
-			if (pacient.efetuarLoga(nome, referencia) == true) {
+			if (pacient.efetuarLogin(nome, referencia) == true) {
 				responsavel.operacoes(pacient);
 			} else {
 				System.out.println("Verifique se o nome e a referencia estao corretos");
