@@ -5,10 +5,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 import com.enums.state.FaseClinica;
 import com.info.users.Paciente;
@@ -142,12 +144,15 @@ public class Enfermeiro extends Pessoa {
 			System.out.print("Contacto: ");
 			String contacto = scan.next();
 			paciente.setContacto(contacto);
-			System.out.println("Referencia");
-			String referencia = scan.next();
+			
+			// gerar uma credencial auto
+			byte[] array = new byte[7]; // length is bounded by 7
+			new Random().nextBytes(array);
+			String referencia = new String(array, Charset.forName("UTF-8"));
 			paciente.setReferencia(referencia);
 			System.out.println();
 			pacientes.add(paciente);
-
+			 
 		} catch (InputMismatchException e) {
 			System.out.println("Erro: Insira os dados corretamente");
 		}
