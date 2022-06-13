@@ -1,7 +1,9 @@
 package com.general.system;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.Map;
 import java.util.Scanner;
 import com.general.system.interfaces.IMystates;
 import com.info.users.Paciente;
@@ -9,6 +11,7 @@ import com.info.users.Responsavel;
 import com.management.users.Enfermeiro;
 
 import BaseDados.BaseDadosUtilizador;
+import Produtos.Produto;
 
 public class MyStates implements IMystates {
 	Scanner scan = new Scanner(System.in);
@@ -178,6 +181,9 @@ public class MyStates implements IMystates {
 		responsavel.cadastrar();
 		String senha = responsavel.getSenha();
 		BaseDadosUtilizador.salvarUtilizador(senha, responsavel);
+		HashMap<String, Responsavel> lista_Responsavel=  new HashMap<String, Responsavel>();
+		lista_Responsavel.put(senha, responsavel);
+		BaseDadosUtilizador.salvarPermanentemente(lista_Responsavel);
 		responsaveis.add(responsavel);
 		operacoesResponsavel(responsavel);
 	}
