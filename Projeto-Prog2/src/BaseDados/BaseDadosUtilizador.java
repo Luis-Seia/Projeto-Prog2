@@ -19,7 +19,7 @@ public class BaseDadosUtilizador {
 		System.out.println("\n\tInformacoes salvas temporariamente!");
 	}
 
-	public static boolean salvarProdutoPermanentemente() {
+	public static boolean salvarPermanentemente() {
 		boolean salvo = false;
 		FileOutputStream fos = null;
 		BufferedOutputStream bos = null;
@@ -56,7 +56,7 @@ public class BaseDadosUtilizador {
 		return salvo;
 	}
 
-	public static boolean salvarProdutoPermanentemente(HashMap<String, Responsavel> novo_map) {
+	public static boolean salvarPermanentemente(HashMap<String, Responsavel> novo_map) {
 
 		boolean salvo = false;
 
