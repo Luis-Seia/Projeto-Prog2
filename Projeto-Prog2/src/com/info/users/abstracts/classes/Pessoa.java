@@ -126,6 +126,11 @@ public abstract class Pessoa {
 				+ "\n Bilhete de identificacao NR: "+this.getNumeroBI()+"\n Genero :"+this.getGenero()+"\n Endereco: "+this.getEndereco()+"\n contacto: "+this.getContacto()
 				+"\n e-mail: "+this.getEmail()+"\n");
 	}
+	@Override
+	public String toString() {
+		return nome + "|" + senha + "|" + idade + "|" + genero + "|" + contacto + "|" + email + "|" + endereco + "|" + NumeroBI + "|"
+				+ cadastrado + "]";
+	}
 	
 	
 	

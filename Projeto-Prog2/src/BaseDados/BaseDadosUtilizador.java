@@ -34,7 +34,7 @@ public class BaseDadosUtilizador {
 			Set<Map.Entry<String, Responsavel>> set = map.entrySet();
 			for (Map.Entry<String, Responsavel> resp : set) {
 
-				String texto = "<" + resp.getKey() + "|" + resp.getValue() + " \n";
+				String texto = "[" + resp.getKey() + "|" + resp.getValue() + " \n";
 
 				byte[] textoByte = texto.getBytes(StandardCharsets.UTF_8);
 				bos.write(textoByte);
@@ -71,7 +71,7 @@ public class BaseDadosUtilizador {
 			Set<Map.Entry<String, Responsavel>> novo_set = novo_map.entrySet();
 			for (Map.Entry<String, Responsavel> prod : novo_set) {
 
-				String texto = "<" + prod.getKey() + "|" + prod.getValue() + " \n";
+				String texto = "[" + prod.getKey() + "|" + prod.getValue() + " \n";
 
 				byte[] textoByte = texto.getBytes(StandardCharsets.UTF_8);
 				bos.write(textoByte);
