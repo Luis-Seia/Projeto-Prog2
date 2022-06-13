@@ -10,6 +10,7 @@ import com.info.users.Paciente;
 import com.info.users.Responsavel;
 import com.management.users.Enfermeiro;
 
+import BaseDados.BaseDadosEnfermeiro;
 import BaseDados.BaseDadosUtilizador;
 
 
@@ -170,6 +171,11 @@ public class MyStates implements IMystates {
 		Enfermeiro enfermeiro = new Enfermeiro();
 		System.out.println("---------Cadastrar Enfermeiro------");
 		enfermeiro.cadastrar();
+		String senha = enfermeiro.getSenha();
+		BaseDadosEnfermeiro.salvarUtilizador(senha, enfermeiro);
+		HashMap<String, Enfermeiro> lista_Enfermeiro=  new HashMap<String, Enfermeiro>();
+		lista_Enfermeiro.put(senha, enfermeiro);
+		BaseDadosEnfermeiro.salvarPermanentemente(lista_Enfermeiro);
 		enfermeiros.add(enfermeiro);
 		operacoesEnfermeiro(enfermeiro);
 	}
