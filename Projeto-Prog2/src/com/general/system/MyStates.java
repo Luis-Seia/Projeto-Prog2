@@ -11,7 +11,7 @@ import com.info.users.Responsavel;
 import com.management.users.Enfermeiro;
 
 import BaseDados.BaseDadosUtilizador;
-import Produtos.Produto;
+
 
 public class MyStates implements IMystates {
 	Scanner scan = new Scanner(System.in);
