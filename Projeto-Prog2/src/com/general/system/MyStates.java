@@ -8,6 +8,8 @@ import com.info.users.Paciente;
 import com.info.users.Responsavel;
 import com.management.users.Enfermeiro;
 
+import BaseDados.BaseDadosUtilizador;
+
 public class MyStates implements IMystates {
 	Scanner scan = new Scanner(System.in);
 	private ArrayList<Enfermeiro> enfermeiros;
@@ -174,6 +176,8 @@ public class MyStates implements IMystates {
 		System.out.println("---------Cadastro do responsavel pelo paciente------");
 		Responsavel responsavel = new Responsavel();
 		responsavel.cadastrar();
+		String senha = responsavel.getSenha();
+		BaseDadosUtilizador.salvarUtilizador(senha, responsavel);
 		responsaveis.add(responsavel);
 		operacoesResponsavel(responsavel);
 	}

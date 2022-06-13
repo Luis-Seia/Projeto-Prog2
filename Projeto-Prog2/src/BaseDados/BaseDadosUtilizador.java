@@ -14,7 +14,7 @@ public class BaseDadosUtilizador {
 
 	public static HashMap<String, Responsavel> map = new HashMap<String, Responsavel>();
 
-	public static void salvarProdutoMap(String senha, Responsavel responsavel) {
+	public static void salvarUtilizador(String senha, Responsavel responsavel) {
 		BaseDadosUtilizador.map.put(senha, responsavel);
 		System.out.println("\n\tInformacoes salvas temporariamente!");
 	}
