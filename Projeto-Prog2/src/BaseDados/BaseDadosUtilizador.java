@@ -16,7 +16,6 @@ public class BaseDadosUtilizador {
 
 	public static void salvarUtilizador(String senha, Responsavel responsavel) {
 		BaseDadosUtilizador.map.put(senha, responsavel);
-		System.out.println("\n\tInformacoes salvas temporariamente!");
 	}
 
 	public static boolean salvarPermanentemente() {
@@ -62,14 +61,11 @@ public class BaseDadosUtilizador {
 
 		FileOutputStream fos = null;
 		BufferedOutputStream bos = null;
-
 		// Escrita em ficheiros
 		try {
 
 			fos = new FileOutputStream(path);
-			// Agora vamos obrescrever o conteudo do ficheiro
-			// Porque o nosso novo_map tem toda informacao anterior
-			// e o produto com os detalhes alterados
+	
 			bos = new BufferedOutputStream(fos);
 
 			Set<Map.Entry<String, Responsavel>> novo_set = novo_map.entrySet();
