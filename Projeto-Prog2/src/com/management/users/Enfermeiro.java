@@ -9,6 +9,7 @@ import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -16,12 +17,29 @@ import com.enums.state.FaseClinica;
 import com.info.users.Paciente;
 import com.info.users.Responsavel;
 import com.info.users.abstracts.classes.Pessoa;
+import BaseDados.BaseDadosPaciente;
 
 public class Enfermeiro extends Pessoa {
-
 	public static ArrayList<Paciente> pacientes = new ArrayList<>();
 	private static SimpleDateFormat date3 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	Scanner scan = new Scanner(System.in);
+
+	
+	public Enfermeiro() {
+
+	}
+
+	public Enfermeiro(String nome, String senha, int idade, String genero, String contacto, String email,
+			String endereco, String numbi) {
+		this.nome = nome;
+		this.senha = senha;
+		this.idade = idade;
+		this.genero = genero.charAt(0);
+		this.contacto = contacto;
+		this.email = email;
+		this.endereco = endereco;
+		this.NumeroBI = numbi;
+	}
 
 	@Override
 	public void cadastrar() {
@@ -49,9 +67,6 @@ public class Enfermeiro extends Pessoa {
 				System.out.println("Opcao invalida");
 				break;
 			}
-			System.out.print("Credencial: ");
-			String credencial = scan.next();
-			paciente.ficha.setCredencial(credencial);
 
 			// verificar se o paciente tem Hipertensao
 			System.out.println("Hipertensao? \n 1.SIM \n 2.Nao");
@@ -152,6 +167,10 @@ public class Enfermeiro extends Pessoa {
 			paciente.setReferencia(referencia);
 			System.out.println();
 			pacientes.add(paciente);
+			BaseDadosPaciente.salvarUtilizador(referencia, paciente);
+			HashMap<String, Paciente> lista_paciente=  new HashMap<String, Paciente>();
+			lista_paciente.put(senha, paciente);
+			BaseDadosPaciente.salvarPermanentemente(lista_paciente);
 			 
 		} catch (InputMismatchException e) {
 			System.out.println("Erro: Insira os dados corretamente");
@@ -255,7 +274,7 @@ public class Enfermeiro extends Pessoa {
 		}
 	}
 
-	public Paciente operaracaoPaciente() {
+	public Paciente escolherPaciente() {
 		this.allPacientes();
 		System.out.println("Selecione o paciente: ");
 		int n = scan.nextInt();

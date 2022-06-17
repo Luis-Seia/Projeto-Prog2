@@ -13,9 +13,8 @@ public class Paciente extends Pessoa{
 	private FaseClinica faseclinica; // Tipo enumerado
 	private String referencia;
 	private String localizacacao;
-	private String infomation;
-	private Responsavel responsavel;
 	public FichaMedica ficha;
+	
 	{
 		ficha = new FichaMedica();
 	}
@@ -43,23 +42,6 @@ public class Paciente extends Pessoa{
 		this.faseclinica = faseclinica;
 	}
 
-	public Responsavel getResponsavel() {
-		return responsavel;
-	}
-
-	public void setResponsavel(Responsavel responsavel) {
-		this.responsavel = responsavel;
-	}
-
-	
-	public String getInfomation() {
-		return infomation;
-	}
-
-	public void setInfomation(String infomation) {
-		this.infomation = infomation;
-	}
-
 	public boolean isInfectado() {
 		return infectado;
 	}
@@ -85,7 +67,14 @@ public class Paciente extends Pessoa{
 	}
 	
 	
-	 public Boolean efetuarLogin(String nome, String referencia){
+	 @Override
+	public String toString() {
+		return  nome + "|" + idade + "|" + genero + "|" + contacto + "|" + email + "|" + endereco + "|"
+				+ NumeroBI + "|" + cadastrado + "|"+faseclinica + "|" + referencia
+				+ "|" + localizacacao + "|" + ficha + "]";
+	}
+
+	public Boolean concederAcesso(String nome, String referencia){
 	        if(this.getNome().equals(nome) && this.getReferencia().equals(referencia)){
 	            return true;
 	        }else{

@@ -3,7 +3,6 @@ package com.general.system;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.InputMismatchException;
-import java.util.Map;
 import java.util.Scanner;
 import com.general.system.interfaces.IMystates;
 import com.info.users.Paciente;
@@ -118,12 +117,12 @@ public class MyStates implements IMystates {
 					int ops = scan.nextInt();
 					switch (ops) {
 					case 1:
-						Paciente paciente1 = logado.operaracaoPaciente();
+						Paciente paciente1 = logado.escolherPaciente();
 						logado.prencherFicha(paciente1);
 						break;
 
 					case 2:
-						Paciente paciente = logado.operaracaoPaciente();
+						Paciente paciente = logado.escolherPaciente();
 						logado.atualzarEstado(paciente);
 						break;
 					case 3:
@@ -158,7 +157,7 @@ public class MyStates implements IMystates {
 		System.out.println("Refrencia: ");
 		String referencia = scan.next();
 		for (Paciente pacient : Enfermeiro.pacientes) {
-			if (pacient.efetuarLogin(nome, referencia) == true) {
+			if (pacient.concederAcesso(nome, referencia) == true) {
 				responsavel.operacoes(pacient);
 			} else {
 				System.out.println("Verifique se o nome e a referencia estao corretos");
@@ -169,7 +168,7 @@ public class MyStates implements IMystates {
 	// metodo para o cadastro do efermeiro
 	public void cadastrarEnfermeiro() {
 		Enfermeiro enfermeiro = new Enfermeiro();
-		System.out.println("---------Cadastrar Enfermeiro------");
+		System.out.println("---------Cadastrar Enfermeiro--------");
 		enfermeiro.cadastrar();
 		String senha = enfermeiro.getSenha();
 		BaseDadosEnfermeiro.salvarUtilizador(senha, enfermeiro);

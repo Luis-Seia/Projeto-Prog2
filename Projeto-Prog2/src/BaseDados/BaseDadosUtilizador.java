@@ -71,7 +71,7 @@ public class BaseDadosUtilizador {
 			Set<Map.Entry<String, Responsavel>> novo_set = novo_map.entrySet();
 			for (Map.Entry<String, Responsavel> prod : novo_set) {
 
-				String texto = "[" + prod.getKey() + "|" + prod.getValue() + " \n";
+				String texto = "[" + prod.getValue() + "|" + prod.getKey() +" \n";
 
 				byte[] textoByte = texto.getBytes(StandardCharsets.UTF_8);
 				bos.write(textoByte);

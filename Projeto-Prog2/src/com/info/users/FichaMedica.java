@@ -6,8 +6,7 @@ public class FichaMedica {
 	
 	// Atriutos
 	private boolean seguroMedico;
-	private String seguradora;
-	private String credencial;
+	private String seguradora;;
 	private String tipoSanguineo;
 	private float peso;
 	private boolean diabete;
@@ -28,12 +27,6 @@ public class FichaMedica {
 	}
 	public void setSeguradora(String seguradora) {
 		this.seguradora = seguradora;
-	}
-	public String getCredencial() {
-		return credencial;
-	}
-	public void setCredencial(String credencial) {;
-		this.credencial = credencial;
 	}
 	public String getTipoSanguineo() {
 		return tipoSanguineo;
@@ -83,6 +76,14 @@ public class FichaMedica {
 	public void setOutrasDoencas(String outrasDoencas) {
 		
 		this.outrasDoencas = outrasDoencas;
+	}
+	@Override
+	
+	public String toString() {
+		return "FichaMedica [seguroMedico=" + seguroMedico + ", seguradora=" + seguradora + ", tipoSanguineo="
+				+ tipoSanguineo + ", peso=" + peso + ", diabete=" + diabete + ", hipertensao=" + hipertensao
+				+ ", doencaCronica=" + doencaCronica + ", tipoCronico=" + tipoCronico + ", outrasDoencas="
+				+ outrasDoencas + "]";
 	}
 	
 	

@@ -6,17 +6,18 @@ import java.util.Scanner;
 public abstract class Pessoa {
 
 	// ATRIBUTOS
-	private String nome;
-	private String senha;
-	private int idade;
-	private char genero;
-	private String contacto;
-	private String email;
-	private String endereco;
-	private String NumeroBI;
+	protected String nome;
+	protected String senha;
+	protected int idade;
+	protected char genero;
+	protected String contacto;
+	protected String email;
+	protected String endereco;
+	protected String NumeroBI;
 	protected boolean cadastrado;
 
 	Scanner scan = new Scanner(System.in);
+	
 
 	// GEETRS E SEETRS
 	public String getNome() {
@@ -90,9 +91,7 @@ public abstract class Pessoa {
 
 			System.out.print("nome: ");
 			String nome = scan.nextLine();
-			System.out.print("Insira uma Senha: ");
-			String senha = scan.nextLine();
-			this.setSenha(nome);
+			this.setNome(nome);
 			System.out.print("idade: ");
 			int idade = scan.nextInt();
 			this.setIdade(idade);
@@ -112,6 +111,9 @@ public abstract class Pessoa {
 			System.out.print("E-mail: ");
 			String email = scan.nextLine();
 			this.setEmail(email);
+			System.out.print("Insira uma Senha: ");
+			String senha = scan.nextLine();
+			this.setSenha(senha);
 			System.out.println("----------------Cadastrado com sucesoo--------------------\n Confira os seus dados");
 			this.info();
 			cadastrado = true;
@@ -140,7 +142,7 @@ public abstract class Pessoa {
 	@Override
 	public String toString() {
 		return nome + "|" + idade + "|" + genero + "|" + contacto + "|" + email + "|" + endereco + "|"
-				+ NumeroBI + "|" + cadastrado + "]";
+				+ NumeroBI + "]";
 	}
 
 }

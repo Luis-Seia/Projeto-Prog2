@@ -30,6 +30,22 @@ public class Responsavel extends Pessoa {
 																		// hospital
 	Scanner scan = new Scanner(System.in);
 
+	public Responsavel(String nome, String senha, int idade, String genero, String contacto, String email,
+			String endereco, String numbi) {
+		this.nome = nome;
+		this.senha = senha;
+		this.idade = idade;
+		this.genero = genero.charAt(0);
+		this.contacto = contacto;
+		this.email = email;
+		this.endereco = endereco;
+		this.NumeroBI = numbi;
+		
+	}
+	public Responsavel() {
+		super();
+	}
+
 	// Getters e Settrs
 	public ArrayList<String> getNotificacoes() {
 		return notificacoes;
@@ -39,11 +55,7 @@ public class Responsavel extends Pessoa {
 		this.notificacoes.add(mensagem);
 	}
 
-	// Cadastro
-	@Override
-	public void cadastrar() {
-		super.cadastrar();
-	}
+	
 
 	// Metodo para acedar as informacoes do paciente associad
 	public void operacoes(Paciente paciente) {
@@ -63,7 +75,7 @@ public class Responsavel extends Pessoa {
 						System.out.println("-----Informcoes pessoais----");
 						paciente.info();
 						System.out.println("--------------------------------");
-						System.out.println("Seguro: " + paciente.ficha.getCredencial() + "\n Hipertensao: "
+						System.out.println("Seguro: " + paciente.ficha.isSeguroMedico() + "\n Hipertensao: "
 								+ paciente.ficha.isHipertensao() + "\n Diabete: " + paciente.ficha.isDiabete()
 								+ "\nPeso: " + paciente.ficha.getPeso() + "\n");
 						if (paciente.ficha.isDoencaCronica() == true) {
@@ -94,7 +106,7 @@ public class Responsavel extends Pessoa {
 					case 4:
 						DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 						System.out.println("Relatorio \n " + dtf.format(LocalDateTime.now()) + "\n" + paciente.getNome()
-								+ "\nTeve como resultado da avaliacao: \n " + paciente.getInfomation());
+								+ "\nTeve como resultado da avaliacao: \n ");
 
 						// ler o arquivo relatorio criado na classe enfermiro
 						String path = "D:\\" + this.getNome() + "" + this.getEmail() + ".txt";

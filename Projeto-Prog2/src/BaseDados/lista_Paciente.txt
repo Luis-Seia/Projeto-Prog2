@@ -1,0 +1,1 @@
+[null|jg|12|h|kjgf|null|yfy|hdfh|false|null|b��-�+|null|FichaMedica [seguroMedico=false, seguradora=null, tipoSanguineo=null, peso=0.0, diabete=false, hipertensao=false, doencaCronica=false, tipoCronico=null, outrasDoencas=null]] 
